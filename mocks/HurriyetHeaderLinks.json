@@ -1,0 +1,32 @@
+{
+  "links": [
+    {
+      "name": "gündem",
+      "path": "/"
+    },
+    {
+      "name": "dünya",
+      "path": "/"
+    },
+    {
+      "name": "bigpara",
+      "path": "/"
+    },
+    {
+      "name": "spor arena",
+      "path": "/"
+    },
+    {
+      "name": "kelebek",
+      "path": "/"
+    },
+    {
+      "name": "yaşam",
+      "path": "/"
+    },
+    {
+      "name": "yazarlar",
+      "path": "/"
+    }
+  ]
+}
