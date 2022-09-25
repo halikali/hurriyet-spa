@@ -1,5 +1,7 @@
 import { ReactNode, FC } from "react";
 
+import HurriyetHeader from "../components/shared/Header/HurriyetHeader";
+
 type MainLayoutType = {
   children: ReactNode;
 };
@@ -7,7 +9,7 @@ type MainLayoutType = {
 const MainLayout: FC<MainLayoutType> = ({ children }) => {
   return (
     <div>
-      <header>burası header</header>
+      <HurriyetHeader />
       <main>{children}</main>
     </div>
   );
