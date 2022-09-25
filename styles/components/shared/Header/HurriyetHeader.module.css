@@ -1,0 +1,44 @@
+.header {
+    @apply
+    flex justify-between items-center
+    w-full h-14
+    bg-red-500
+    p-4
+}
+
+.brandLogoWrapper {
+    @apply
+    flex gap-3 justify-center items-center
+}
+
+.menuLogo {
+    @apply
+    w-8 h-8
+    cursor-pointer
+}
+
+
+.navList {
+    @apply
+    hidden
+    w-full
+    text-white
+
+    /* large screen */
+    lg:flex lg:justify-center lg:items-center lg:gap-2
+    lg:text-xs lg:uppercase lg:font-bold
+
+    /* extra large screen*/
+    2xl:text-sm
+}
+
+.searchIcon {
+    @apply
+    cursor-pointer
+}
+
+.brandLogo {
+    @apply
+    w-24 h-8
+    cursor-pointer
+}
