@@ -35,6 +35,7 @@
 .searchIcon {
     @apply
     cursor-pointer
+    w-6 h-6
 }
 
 .brandLogo {
