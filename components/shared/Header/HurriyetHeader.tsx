@@ -10,8 +10,8 @@ const HurriyetHeader = () => {
   return (
     <header className={style.header}>
       <div className={style.brandLogoWrapper}>
-        <img src={assets.icons.hamburgerOpen.default.src} alt="hürriyet menü icon" className={style.menuLogo} />
-        <img src={assets.logos.whiteLogo.default.src} alt="hürriyet.com.tr" className={style.brandLogo} />
+        <img src={assets.icons.hamburgerOpen.default.src} alt="hürriyet menü icon" className={style.menuLogo} width={"160"} height={"90"}/>
+        <img src={assets.logos.whiteLogo.default.src} alt="hürriyet.com.tr" className={style.brandLogo} width={"160"} height={"90"} />
       </div>
       <nav className={style.nav}>
         <ul className={style.navList}>
@@ -24,7 +24,7 @@ const HurriyetHeader = () => {
           ))}
         </ul>
       </nav>
-      <img className={style.searchIcon} src={assets.icons.searchIcon.default.src} alt="hürriyet arama icon"/>
+      <img className={style.searchIcon} src={assets.icons.searchIcon.default.src} alt="hürriyet arama icon" width={"160"} height={"90"}/>
     </header>
   );
 };
