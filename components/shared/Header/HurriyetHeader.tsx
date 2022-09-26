@@ -1,10 +1,11 @@
+import { FC } from "react";
 import Link from "next/link";
 
 import NavLinks from "../../../mocks/HurriyetHeaderLinks.json";
 import assets from "../../../assets";
 import style from "../../../styles/components/shared/Header/HurriyetHeader.module.css";
 
-const HurriyetHeader = () => {
+const HurriyetHeader:FC = () => {
   const { links } = NavLinks;
  
   return (
