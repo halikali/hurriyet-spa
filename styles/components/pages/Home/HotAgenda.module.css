@@ -1,0 +1,41 @@
+.container {
+    @apply
+    hidden
+    bg-white
+    rounded-md
+
+    md:block
+    md:relative
+    md:w-full
+}
+
+.title {
+    @apply
+    text-white text-base font-bold 
+    bg-red-600
+    w-44 h-auto
+    pt-4 pr-5 pb-[21.5%] pl-4
+    border-r-[10px] border-red-400
+    rounded-l-md
+
+    lg:w-64
+    lg:text-xl
+}
+
+.wrapper {
+    @apply
+    absolute top-8
+    flex justify-start items-center gap-4
+    p-2
+}
+
+.imageWrapper {
+    @apply
+    min-w-[230px] min-h-[130px]  max-w-sm max-h-44
+}
+
+.image {
+    @apply
+    w-full h-auto
+    object-contain
+}
