@@ -1,0 +1,13 @@
+.main {
+    @apply
+    w-full min-h-screen
+    bg-slate-100
+}
+
+.container {
+    @apply
+    w-full min-h-screen
+    m-auto
+
+    lg:w-[990px]
+}
