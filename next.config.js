@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ["i4.hurimg.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
