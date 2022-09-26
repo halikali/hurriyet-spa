@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { NextPage } from "next";
+import HotAgenda from "components/pages/Home/HotAgenda";
 
 const Home: NextPage = () => {
   return (
@@ -7,7 +8,9 @@ const Home: NextPage = () => {
       <Head>
         <title>Hürriyet ana sayfa</title>
       </Head>
-      <div>Home</div>
+      <div>
+        <HotAgenda />
+      </div>
     </>
   );
 };
