@@ -4,6 +4,11 @@ import { useRouter } from "next/router";
 import MainLayout from "../layouts/MainLayout";
 import "../styles/tailwind.css";
 
+// import swiper styles
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
