@@ -14,7 +14,7 @@
     text-white text-base font-bold 
     bg-red-600
     w-44 h-auto
-    pt-4 pr-5 pb-[21.5%] pl-4
+    pt-4 pr-5 pb-[21%] pl-4
     border-r-[10px] border-red-400
     rounded-l-md
 
@@ -26,7 +26,7 @@
     @apply
     absolute top-8
     flex justify-start items-center gap-4
-    p-2
+    p-2 px-5
 }
 
 .imageWrapper {
