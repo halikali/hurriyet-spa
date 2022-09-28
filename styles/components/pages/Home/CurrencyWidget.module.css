@@ -1,0 +1,55 @@
+.currencyWidget {
+    @apply
+    flex
+    w-full
+    bg-white
+    my-3
+    
+    md:px-3 md:py-2
+}
+
+.listItem {
+    @apply
+    w-1/4
+    pl-3
+    border-r
+    last:border-r-0
+
+    md:pl-5
+}
+
+.currencyName {
+    @apply
+    text-xs font-bold uppercase
+}
+
+.priceWrapper {
+    @apply
+    pb-2
+    
+    md:flex md:gap-2
+    md:pb-0
+    
+}
+
+.price {
+    @apply
+    text-base font-bold
+}
+
+.rateOfChange {
+    @apply
+    bg-green-400
+    text-white text-sm 
+    px-1
+    rounded-sm
+
+    md:flex md:justify-center md:items-center 
+}
+
+.time {
+    @apply
+    hidden
+    md:block
+    md:text-[10px] md:font-bold md:text-gray-500
+}
