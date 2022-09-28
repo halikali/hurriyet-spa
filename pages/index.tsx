@@ -5,6 +5,7 @@ import HotAgenda from "components/pages/Home/HotAgenda";
 import HomeCarousel from "components/pages/Home/HomeCarousel";
 import VerticaNewsCard from "components/shared/NewsCard/VerticalNewsCard";
 import style from "styles/pages/Home.module.css";
+import CurrencyWidget from "components/pages/Home/CurrencyWidget/CurrencyWidget";
 
 const Home: NextPage = () => {
   return (
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
           <div className={style.homeCarouselWrapper}>
             <HomeCarousel />
           </div>
+          <CurrencyWidget />
           <div className={style.highlightBox}>
             <VerticaNewsCard />
             <VerticaNewsCard />
