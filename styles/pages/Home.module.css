@@ -12,7 +12,7 @@
 
 .highlightBox {
     @apply
-    flex gap-4
+    md:flex md:gap-4
 }
 
 .main {
@@ -21,6 +21,8 @@
 }
 
 .aside {
-    @apply    
+    @apply
+    hidden
+    lg:block    
     lg:w-1/4
 }
