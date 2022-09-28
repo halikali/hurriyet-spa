@@ -18,7 +18,7 @@ const HomeCarousel: FC = () => {
         loop={true}
       >
         {news?.map((item, i) => (
-          <SwiperSlide>
+          <SwiperSlide key={i}>
             <a href={item.href} key={`${item.href}${i}`}>
               <Image
                 src={item.src}
@@ -27,6 +27,7 @@ const HomeCarousel: FC = () => {
                 width={600}
                 height={400}
                 layout="responsive"
+                priority
               />
             </a>
           </SwiperSlide>
