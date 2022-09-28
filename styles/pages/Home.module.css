@@ -10,11 +10,17 @@
     lg:flex lg:justify-between lg:gap-4
 }
 
-.aside {
+.highlightBox {
     @apply
-    bg-red-100
-    
-    lg:w-72
+    flex gap-4
+}
 
-    2xl:w-[360px]
+.main {
+    @apply
+    lg:w-3/4
+}
+
+.aside {
+    @apply    
+    lg:w-1/4
 }
