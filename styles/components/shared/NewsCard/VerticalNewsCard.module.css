@@ -1,0 +1,32 @@
+.newsCard {
+    @apply
+    mb-4
+    rounded-md
+    overflow-hidden
+}
+
+.imageWrapper {
+    @apply
+    w-full
+}
+
+.figcaption {
+    @apply
+    bg-white
+    pb-4
+   
+}
+
+.title {
+    @apply
+    block
+    p-[10px] pb-0
+    text-base font-bold
+}
+
+.tag {
+    @apply
+    block
+    p-[10px]
+    text-[10px] text-red-600 font-bold uppercase
+}
