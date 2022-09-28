@@ -2,8 +2,8 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 
 import MainLayout from "../layouts/MainLayout";
-import "../styles/tailwind.css";
-import "../styles/customize/main.scss";
+import "styles/tailwind.css";
+import "styles/customize/main.scss";
 
 // import swiper styles
 import "swiper/scss";

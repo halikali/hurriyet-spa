@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { FC } from "react";
 
-import HotAgendNews from "../../../mocks/HotAgenda.json";
-import style from "../../../styles/components/pages/Home/HotAgenda.module.css";
+import HotAgendNews from "mocks/HotAgenda.json";
+import style from "styles/components/pages/Home/HotAgenda.module.css";
 
 const HotAgenda: FC = () => {
   const { news } = HotAgendNews;

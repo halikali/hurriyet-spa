@@ -1,8 +1,8 @@
 import WhatHappenedSlider from "components/shared/Header/WhatHappenedSlider";
 import { ReactNode, FC } from "react";
 
-import style from "../styles/layouts/MainLayout.module.css";
-import HurriyetHeader from "../components/shared/Header/HurriyetHeader";
+import style from "styles/layouts/MainLayout.module.css";
+import HurriyetHeader from "components/shared/Header/HurriyetHeader";
 
 type MainLayoutType = {
   children: ReactNode;
