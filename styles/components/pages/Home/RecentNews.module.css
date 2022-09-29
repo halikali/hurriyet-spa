@@ -1,0 +1,54 @@
+.recentNews {
+    @apply
+    hidden
+
+    lg:block
+    bg-white
+    rounded-md
+    overflow-hidden
+    px-4 py-3 pb-0
+}
+
+.header {
+    @apply
+    flex justify-between
+    pb-3 mb-3
+    border-b border-b-slate-200
+}
+
+.title {
+    @apply
+    text-base font-bold capitalize
+}
+
+.list {
+    @apply
+    h-96
+    overflow-auto 
+    [&::-webkit-scrollbar]:hidden
+}
+
+.listItem {
+    @apply
+    flex 
+    mb-3
+}
+
+.wrapper {
+    @apply
+    2xl:pr-1
+}
+
+.newsTitle {
+    @apply
+    block
+    text-sm font-bold
+
+    2xl:mb-2
+}
+
+.newsTag {
+    @apply
+    block
+    text-[10px] text-red-500 uppercase font-bold
+}
