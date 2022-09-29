@@ -1,0 +1,25 @@
+.seperator {
+    @apply
+    w-full h-3
+    bg-red-400
+    flex justify-between items-center
+    my-5
+
+}
+
+.title {
+    @apply
+    text-xl font-bold capitalize
+    bg-slate-100
+    pr-3 -mt-2
+}
+
+.subtitle {
+    @apply
+    relative
+    text-base font-bold lowercase
+    bg-slate-100    
+    pl-4
+
+    before:content-[''] before:w-4 before:h-4 before:absolute before:-left-1 before:bottom-1 before:rotate-12 before:z-20 before:bg-slate-100  
+}
