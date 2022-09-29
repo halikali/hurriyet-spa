@@ -10,14 +10,10 @@ class MyDocument extends Document {
     return (
       <Html lang="tr">
         <Head>
-          <meta charset="UTF-8" />
+          <meta charSet="UTF-8" />
           <meta name="description" content="Hürriyet - Haber, Son dakika haberler, Güncel gazete haberleri" />
           <meta name="keywords" content="HTML, CSS, JavaScript" />
           <meta name="author" content="Ali Tunç" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
         </Head>
         <body>
           <Main />
