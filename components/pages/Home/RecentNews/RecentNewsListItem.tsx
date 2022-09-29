@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 import style from "styles/components/pages/Home/RecentNews.module.css";
@@ -7,12 +8,14 @@ const RecentNewsListItem: FC = () => {
   return (
     <li className={style.listItem}>
       <div className={style.wrapper}>
-        <a href="/" className={style.newsTitle}>
-          Derbi öncesi Vodafone Park önünde olay!
-        </a>
-        <a href="/" className={style.newsTag}>
-          #Beşiktaş - Fenerbahçe
-        </a>
+        <Link href="/">
+          <a className={style.newsTitle}>
+            Derbi öncesi Vodafone Park önünde olay!
+          </a>
+        </Link>
+        <Link href="/">
+          <a className={style.newsTag}>#Beşiktaş - Fenerbahçe</a>
+        </Link>
       </div>
       <div className={style.imageWrapper}>
         <Image
