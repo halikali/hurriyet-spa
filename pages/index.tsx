@@ -7,6 +7,7 @@ import VerticaNewsCard from "components/shared/NewsCard/VerticalNewsCard";
 import style from "styles/pages/Home.module.css";
 import CurrencyWidget from "components/pages/Home/CurrencyWidget/CurrencyWidget";
 import RecentNews from "components/pages/Home/RecentNews/RecentNews";
+import Seperator from "components/shared/Seperator/Seperator";
 
 const Home: NextPage = () => {
   return (
@@ -36,6 +37,7 @@ const Home: NextPage = () => {
           <RecentNews />
         </aside>
       </div>
+      <Seperator />
     </>
   );
 };
