@@ -17,12 +17,12 @@
 
 .main {
     @apply
-    lg:w-3/4
+    lg:w-[70%]
 }
 
 .aside {
     @apply
     hidden
     lg:block    
-    lg:w-1/4
+    lg:w-[30%]
 }
