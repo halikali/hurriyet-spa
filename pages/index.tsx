@@ -6,6 +6,7 @@ import HomeCarousel from "components/pages/Home/HomeCarousel";
 import VerticaNewsCard from "components/shared/NewsCard/VerticalNewsCard";
 import style from "styles/pages/Home.module.css";
 import CurrencyWidget from "components/pages/Home/CurrencyWidget/CurrencyWidget";
+import RecentNews from "components/pages/Home/RecentNews/RecentNews";
 
 const Home: NextPage = () => {
   return (
@@ -32,6 +33,7 @@ const Home: NextPage = () => {
         <aside className={style.aside}>
           <VerticaNewsCard />
           <VerticaNewsCard />
+          <RecentNews />
         </aside>
       </div>
     </>
