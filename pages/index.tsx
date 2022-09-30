@@ -46,6 +46,16 @@ const Home: NextPage = () => {
         <HorizontalNewsCard />
         <HorizontalNewsCard />
       </div>
+      <div className="md:columns-3 lg:columns-4">
+        <VerticaNewsCard />
+        <VerticaNewsCard />
+        <VerticaNewsCard />
+        <VerticaNewsCard />
+        <VerticaNewsCard />
+        <VerticaNewsCard />
+        <VerticaNewsCard />
+        <VerticaNewsCard />
+      </div>
     </>
   );
 };
