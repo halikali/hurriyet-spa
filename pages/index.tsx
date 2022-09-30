@@ -9,6 +9,7 @@ import CurrencyWidget from "components/pages/Home/CurrencyWidget/CurrencyWidget"
 import RecentNews from "components/pages/Home/RecentNews/RecentNews";
 import Seperator from "components/shared/Seperator/Seperator";
 import HorizontalNewsCard from "components/shared/NewsCard/HorizontalNewsCard";
+import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
 
 const Home: NextPage = () => {
   return (
@@ -40,7 +41,11 @@ const Home: NextPage = () => {
       </div>
       <Seperator />
 
-      <div className="lg:w-[70%] columns-2 px-3 xl:p-0 ">
+      <div className="lg:w-[70%]">
+        <HorizontalNewsCardWithSpotText />
+      </div>
+
+      <div className="lg:w-[70%] columns-2 px-3 xl:p-0 mb-3">
         <HorizontalNewsCard />
         <HorizontalNewsCard />
         <HorizontalNewsCard />
