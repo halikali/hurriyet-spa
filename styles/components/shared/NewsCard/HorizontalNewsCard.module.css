@@ -1,0 +1,35 @@
+.newsCard {
+    @apply
+    w-full h-auto
+    bg-white 
+    mb-3
+
+    lg:flex
+}
+
+.imageWrapper {
+    @apply
+    w-full h-auto
+}
+
+.figcaption {
+    @apply
+    w-full
+}
+
+.title {
+    @apply    
+    block
+    p-[10px] pb-0
+    text-base font-bold
+    line-clamp-2 
+    
+    2xl:line-clamp-3
+}
+
+.tag {
+    @apply
+    block
+    p-[10px]
+    text-[10px] text-red-600 font-bold uppercase
+}
