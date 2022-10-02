@@ -1,7 +1,6 @@
 import WhatHappenedSlider from "components/shared/Header/WhatHappenedSlider";
 import { ReactNode, FC } from "react";
 
-import style from "styles/layouts/MainLayout.module.css";
 import HurriyetHeader from "components/shared/Header/HurriyetHeader";
 
 type MainLayoutType = {
@@ -13,9 +12,7 @@ const MainLayout: FC<MainLayoutType> = ({ children }) => {
     <div>
       <HurriyetHeader />
       <WhatHappenedSlider />
-      <main className={style.main}>
-        <div className={style.container}>{children}</div>
-      </main>
+      {children}
     </div>
   );
 };
