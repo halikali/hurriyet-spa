@@ -45,7 +45,7 @@ const Home: NextPage = () => {
         <HorizontalNewsCardWithSpotText />
       </div>
 
-      <div className="lg:w-[70%] columns-2 px-3 xl:p-0 mb-3">
+      <div className="lg:w-[70%] columns-2 px-3 md:p-0 mb-3">
         <HorizontalNewsCard />
         <HorizontalNewsCard />
         <HorizontalNewsCard />
