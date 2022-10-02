@@ -46,12 +46,14 @@ const HurriyetHeader: FC = () => {
           ))}
         </ul>
       </nav>
-      <img
+      <Image
         className={style.searchIcon}
         src={assets.icons.searchIcon.default.src}
         alt="hürriyet arama icon"
-        width={"160"}
-        height={"90"}
+        width={"29"}
+        height={"29"}
+        priority
+        decoding="async"
       />
     </header>
   );
