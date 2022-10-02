@@ -35,9 +35,8 @@
 .spotlessHorizontalNewsCardWrapper {
     @apply
     columns-2 
-    px-3 mb-3
+    mb-3
 
-    md:p-0    
     lg:w-[70%]
 }
 
