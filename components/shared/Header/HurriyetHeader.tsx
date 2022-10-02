@@ -22,11 +22,10 @@ const HurriyetHeader: FC = () => {
           decoding="async"
         />
         <Link href={"/"} title={"www.hurriyet.com.tr"}>
-          <a>
+          <a className={style.brandLogo}> 
             <Image
               src={assets.logos.whiteLogo.default.src}
               alt="hürriyet.com.tr"
-              className={style.brandLogo}
               width={"100"}
               height={"29"}
               priority

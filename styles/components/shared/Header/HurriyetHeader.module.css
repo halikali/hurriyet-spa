@@ -40,6 +40,7 @@
 
 .brandLogo {
     @apply
+    mt-3
     w-24 h-8
     cursor-pointer
 }
