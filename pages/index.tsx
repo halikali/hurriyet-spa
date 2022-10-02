@@ -13,55 +13,57 @@ import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/Horizonta
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Head>
-        <title>Hürriyet ana sayfa</title>
-      </Head>
-      <div className={style.hotAgendaWrapper}>
-        <HotAgenda />
-      </div>
-
-      <div className={style.landingWrapper}>
-        <div className={style.main}>
-          <div className={style.homeCarouselWrapper}>
-            <HomeCarousel />
-          </div>
-          <CurrencyWidget />
-          <div className={style.highlightBox}>
-            <VerticaNewsCard />
-            <VerticaNewsCard />
-            <VerticaNewsCard />
-          </div>
+    <main className={"main main--home"}>
+      <div className={"wrapper"}>
+        <Head>
+          <title>Hürriyet ana sayfa</title>
+        </Head>
+        <div className={style.hotAgendaWrapper}>
+          <HotAgenda />
         </div>
-        <aside className={style.aside}>
+
+        <div className={style.landingWrapper}>
+          <div className={style.main}>
+            <div className={style.homeCarouselWrapper}>
+              <HomeCarousel />
+            </div>
+            <CurrencyWidget />
+            <div className={style.highlightBox}>
+              <VerticaNewsCard />
+              <VerticaNewsCard />
+              <VerticaNewsCard />
+            </div>
+          </div>
+          <aside className={style.aside}>
+            <VerticaNewsCard />
+            <VerticaNewsCard />
+            <RecentNews />
+          </aside>
+        </div>
+        <Seperator />
+
+        <div className={style.horizontalCardWrapper}>
+          <HorizontalNewsCardWithSpotText />
+        </div>
+
+        <div className={style.spotlessHorizontalNewsCardWrapper}>
+          <HorizontalNewsCard />
+          <HorizontalNewsCard />
+          <HorizontalNewsCard />
+          <HorizontalNewsCard />
+        </div>
+        <div className={style.contentWrapper}>
           <VerticaNewsCard />
           <VerticaNewsCard />
-          <RecentNews />
-        </aside>
+          <VerticaNewsCard />
+          <VerticaNewsCard />
+          <VerticaNewsCard />
+          <VerticaNewsCard />
+          <VerticaNewsCard />
+          <VerticaNewsCard />
+        </div>
       </div>
-      <Seperator />
-
-      <div className="lg:w-[70%]">
-        <HorizontalNewsCardWithSpotText />
-      </div>
-
-      <div className="lg:w-[70%] columns-2 px-3 md:p-0 mb-3">
-        <HorizontalNewsCard />
-        <HorizontalNewsCard />
-        <HorizontalNewsCard />
-        <HorizontalNewsCard />
-      </div>
-      <div className="md:columns-3 lg:columns-4">
-        <VerticaNewsCard />
-        <VerticaNewsCard />
-        <VerticaNewsCard />
-        <VerticaNewsCard />
-        <VerticaNewsCard />
-        <VerticaNewsCard />
-        <VerticaNewsCard />
-        <VerticaNewsCard />
-      </div>
-    </>
+    </main>
   );
 };
 

@@ -26,3 +26,23 @@
     lg:block    
     lg:w-[30%]
 }
+
+.horizontalCardWrapper {
+    @apply
+    lg:w-[70%]
+}
+
+.spotlessHorizontalNewsCardWrapper {
+    @apply
+    columns-2 
+    px-3 mb-3
+
+    md:p-0    
+    lg:w-[70%]
+}
+
+.contentWrapper {
+    @apply
+    md:columns-3 
+    lg:columns-4
+}
