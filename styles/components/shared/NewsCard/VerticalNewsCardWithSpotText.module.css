@@ -1,0 +1,42 @@
+.newsCard {
+    @apply
+    mb-4
+    rounded-md
+    overflow-hidden
+    bg-white
+}
+
+
+.imageWrapper {
+    @apply
+    w-full h-auto
+}
+
+.figcaption {
+    @apply
+    w-full
+}
+
+.spotText {
+    @apply
+    text-base font-light
+    p-[10px] pb-0 mb-2
+    line-clamp-4
+}
+
+.title {
+    @apply    
+    block
+    p-[10px] pb-0
+    text-2xl font-bold
+    line-clamp-2 
+    
+    2xl:line-clamp-3
+}
+
+.tag {
+    @apply
+    block
+    p-[10px]
+    text-[10px] text-red-600 font-bold uppercase
+}
