@@ -1,0 +1,17 @@
+.list {
+    @apply
+    w-full h-auto
+    flex justify-start items-center gap-1
+}
+
+.listItem {
+    @apply
+    first:before:hidden
+    before:content-[''] before:p-[2px] before:inline-block before:border-black before:border-t before:border-r before:rotate-45 before:mt-2 before:mr-[6px] before:mb-[2px] before:ml-0  
+}
+
+.link {
+    @apply
+    relative
+    text-xs uppercase font-bold tracking-tight
+}
