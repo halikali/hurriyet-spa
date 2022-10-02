@@ -1,0 +1,19 @@
+.wrapper {
+    @apply
+    pt-3
+}
+
+.title {
+    @apply
+    relative
+    text-black text-4xl -tracking-tighter font-bold
+    before:content-[':'] before:mr-2 before:text-red-500 before:text-[38px] before:font-bold
+}
+
+.description {
+    @apply
+    relative
+    text-black text-base font-semibold -tracking-tighter 
+    mt-4 py-2 pl-4
+    before:absolute before:content-[''] before:w-1 before:h-full before:rounded-md before:bg-red-500 before:left-0 before:top-0
+}
