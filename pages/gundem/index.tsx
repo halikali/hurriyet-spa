@@ -1,7 +1,12 @@
+import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import { NextPage } from "next";
 
 const index: NextPage = () => {
-  return <div>index</div>;
+  return (
+    <div>
+      <Breadcrumb />
+    </div>
+  );
 };
 
 export default index;
