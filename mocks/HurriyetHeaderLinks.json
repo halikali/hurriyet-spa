@@ -2,7 +2,7 @@
   "links": [
     {
       "name": "gündem",
-      "path": "/"
+      "path": "/gundem"
     },
     {
       "name": "dünya",
