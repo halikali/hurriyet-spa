@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Link from "next/link";
 
-import NavLinks from "../../../mocks/HurriyetHeaderLinks.json";
-import assets from "../../../assets";
-import style from "../../../styles/components/shared/Header/HurriyetHeader.module.css";
+import NavLinks from "mocks/HurriyetHeaderLinks.json";
+import assets from "assets";
+import style from "styles/components/shared/Header/HurriyetHeader.module.css";
 import Image from "next/image";
 
 const HurriyetHeader: FC = () => {
@@ -22,15 +22,17 @@ const HurriyetHeader: FC = () => {
           decoding="async"
         />
         <Link href={"/"} title={"www.hurriyet.com.tr"}>
-          <Image
-            src={assets.logos.whiteLogo.default.src}
-            alt="hürriyet.com.tr"
-            className={style.brandLogo}
-            width={"100"}
-            height={"29"}
-            priority
-            decoding="async"
-          />
+          <a>
+            <Image
+              src={assets.logos.whiteLogo.default.src}
+              alt="hürriyet.com.tr"
+              className={style.brandLogo}
+              width={"100"}
+              height={"29"}
+              priority
+              decoding="async"
+            />
+          </a>
         </Link>
       </div>
       <nav className={style.nav}>
