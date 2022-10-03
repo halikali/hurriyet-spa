@@ -1,0 +1,242 @@
+{
+  "pages": [
+    {
+      "page": "gündem",
+      "href": "/gundem"
+    },
+    {
+      "page": "dünya",
+      "href": "/"
+    },
+    {
+      "page": "bigpara",
+      "href": "/",
+      "subCategories": [
+        {
+          "name": "anasayfa",
+          "href": "/"
+        },
+        {
+          "name": "borsa",
+          "href": "/"
+        },
+        {
+          "name": "döviz",
+          "href": "/"
+        },
+        {
+          "name": "altın",
+          "href": "/"
+        },
+        {
+          "name": "viop&varant",
+          "href": "/"
+        },
+        {
+          "name": "analiz",
+          "href": "/"
+        },
+        {
+          "name": "kobi",
+          "href": "/"
+        },
+        {
+          "name": "kripto paralar",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "page": "spor arena",
+      "href": "/",
+      "subCategories": [
+        {
+          "name": "anasayfa",
+          "href": "/"
+        },
+        {
+          "name": "futbol",
+          "href": "/"
+        },
+        {
+          "name": "basketbol",
+          "href": "/"
+        },
+        {
+          "name": "voleybol",
+          "href": "/"
+        },
+        {
+          "name": "e-spor",
+          "href": "/"
+        },
+        {
+          "name": "canlı skor",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "page": "kelebek",
+      "href": "/",
+      "subCategories": [
+        {
+          "name": "anasayfa",
+          "href": "/"
+        },
+        {
+          "name": "ekranda",
+          "href": "/"
+        },
+        {
+          "name": "hayat",
+          "href": "/"
+        },
+        {
+          "name": "seyahat",
+          "href": "/"
+        },
+        {
+          "name": "stil",
+          "href": "/"
+        },
+        {
+          "name": "mucize lezzetler",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "page": "yaşam",
+      "href": "/",
+      "subCategories": [
+        {
+          "name": "anasayfa",
+          "href": "/"
+        },
+        {
+          "name": "cumartesi",
+          "href": "/"
+        },
+        {
+          "name": "pazar",
+          "href": "/"
+        },
+        {
+          "name": "lezzetli hayat",
+          "href": "/"
+        },
+        {
+          "name": "seyahat",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "page": "yazarlar",
+      "href": "/"
+    },
+    {
+      "page": "astroloji",
+      "href": "/"
+    },
+    {
+      "page": "tümü",
+      "href": "/",
+      "subCategories": [
+        {
+          "name": "ekonomi",
+          "href": "/"
+        },
+        {
+          "name": "tv rehberi",
+          "href": "/"
+        },
+        {
+          "name": "mahmure",
+          "href": "/"
+        },
+        {
+          "name": "hürriyet aile",
+          "href": "/"
+        },
+        {
+          "name": "video",
+          "href": "/"
+        },
+        {
+          "name": "astroloji",
+          "href": "/"
+        },
+        {
+          "name": "bulmaca",
+          "href": "/"
+        },
+        {
+          "name": "en iyi on",
+          "href": "/"
+        },
+        {
+          "name": "dizi izle",
+          "href": "/"
+        },
+        {
+          "name": "cuma",
+          "href": "/"
+        },
+        {
+          "name": "leziz",
+          "href": "/"
+        },
+        {
+          "name": "teknoloji",
+          "href": "/"
+        },
+        {
+          "name": "foto galeri",
+          "href": "/"
+        },
+        {
+          "name": "ramazan",
+          "href": "/"
+        },
+        {
+          "name": "kitap sanat",
+          "href": "/"
+        },
+        {
+          "name": "hava durumu",
+          "href": "/"
+        },
+        {
+          "name": "avrupa",
+          "href": "/"
+        },
+        {
+          "name": "eğitim",
+          "href": "/"
+        },
+        {
+          "name": "ik/yeni ekonomi",
+          "href": "/"
+        },
+        {
+          "name": "son dakika",
+          "href": "/"
+        },
+        {
+          "name": "yerel haberler",
+          "href": "/"
+        },
+        {
+          "name": "bize ulaşın",
+          "href": "/"
+        },
+        {
+          "name": "veri politikası",
+          "href": "/"
+        }
+      ]
+    }
+  ]
+}
