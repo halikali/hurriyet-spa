@@ -1,0 +1,97 @@
+.main {
+    @apply
+    fixed
+    hidden opacity-0
+    -left-[calc(100%-50px)] top-0
+    w-[calc(100%-50px)] min-h-screen max-h-[1000px]
+    px-4 py-12
+    bg-white
+    z-20
+    shadow-lg
+    transition-all duration-[.25s]
+    overflow-auto
+    [&::-webkit-scrollbar]:hidden
+
+
+    sm:w-[435px]
+    sm:-left-[435px]
+    sm:pt-16 sm:pr-11 sm:pb-5 sm:pl-8
+}
+
+.menuOpen {
+    @apply
+    block
+    opacity-100
+    left-0
+    transition-all duration-[0.25s]
+}
+
+.hamburgerHeader {
+    @apply
+    flex justify-between items-center
+    mb-5
+}
+
+.icon {
+    @apply
+    block
+    flex-none
+    cursor-pointer
+}
+
+.logo {
+    @apply
+    pt-4
+}
+
+.title {
+    @apply
+    text-xl uppercase
+}
+
+.mainList {
+    @apply
+    pl-8
+}
+
+.mainListItem {
+    @apply
+    mb-10
+    cursor-pointer
+}
+
+.listSymbol {
+    @apply
+    inline-block
+    w-4 h-auto 
+    text-2xl uppercase text-red-600
+}
+
+.subList {
+    @apply
+    pl-12 pt-4
+    flex flex-col
+    transition-all duration-300
+    max-h-0 overflow-hidden
+}
+
+.subTitle {
+    @apply
+    block
+    text-sm uppercase font-semibold tracking-tight
+    transition-colors duration-300
+    text-black
+    mb-3
+}
+
+.textActive {
+    @apply
+    transition-colors duration-300
+    text-red-500
+}
+
+.subListActive {
+    @apply
+    max-h-[500px] 
+    transition-all duration-300
+}
