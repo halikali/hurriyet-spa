@@ -10,7 +10,6 @@
     },
     {
       "page": "bigpara",
-      "href": "/",
       "subCategories": [
         {
           "name": "anasayfa",
@@ -48,7 +47,6 @@
     },
     {
       "page": "spor arena",
-      "href": "/",
       "subCategories": [
         {
           "name": "anasayfa",
@@ -78,7 +76,6 @@
     },
     {
       "page": "kelebek",
-      "href": "/",
       "subCategories": [
         {
           "name": "anasayfa",
@@ -108,7 +105,6 @@
     },
     {
       "page": "yaşam",
-      "href": "/",
       "subCategories": [
         {
           "name": "anasayfa",
@@ -142,7 +138,6 @@
     },
     {
       "page": "tümü",
-      "href": "/",
       "subCategories": [
         {
           "name": "ekonomi",
