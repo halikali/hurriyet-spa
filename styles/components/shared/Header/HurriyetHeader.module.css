@@ -1,5 +1,6 @@
 .header {
     @apply
+    relative
     flex justify-between items-center
     w-full h-14
     bg-red-500
