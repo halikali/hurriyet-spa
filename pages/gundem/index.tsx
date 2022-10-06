@@ -4,14 +4,17 @@ import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import CategoryTitle from "components/shared/CategoryTitle/CategoryTitle";
 import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
 import VerticalNewsCardWithSpotText from "components/shared/NewsCard/VerticalNewsCardWithSpotText";
-import style from "styles/pages/Gundem.module.css";
+import style from "styles/pages/CategoryPage.module.css";
 
 const index: NextPage = () => {
   return (
     <main className={"main main--category"}>
       <div className={"wrapper"}>
         <Breadcrumb />
-        <CategoryTitle />
+        <CategoryTitle
+          title="gündem"
+          description="Güncel Haberler, Bugün Yaşanan Son Olaylar ve Gelişmeler"
+        />
         <div className={style.container}>
           <VerticalNewsCardWithSpotText />
 
