@@ -1,12 +1,13 @@
 import { FC } from "react";
 
-import style from "styles/components/shared/CategoryTitle/CategoryTitle.module.css"
+import { ICategoryTitle } from "types/componentTypes";
+import style from "styles/components/shared/CategoryTitle/CategoryTitle.module.css";
 
-const CategoryTitle: FC = () => {
+const CategoryTitle: FC<ICategoryTitle> = ({ title, description }) => {
   return (
     <div className={style.wrapper}>
-      <h1 className={style.title}>Gündem</h1>
-      <p className={style.description}>Güncel Haberler, Bugün Yaşanan Son Olaylar ve Gelişmeler</p>
+      <h1 className={style.title}>{title}</h1>
+      <p className={style.description}>{description}</p>
     </div>
   );
 };
