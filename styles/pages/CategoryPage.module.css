@@ -1,0 +1,99 @@
+.listItem {
+    @apply
+    shadow-md
+    rounded-lg overflow-hidden
+    mb-4
+
+    md:shadow-none
+    md:rounded-none md:overflow-visible
+    md:pt-8 md:pb-4 md:mb-0
+    md:border-t md:border-t-gray-200
+}
+
+.container {
+    @apply
+    w-full
+    mt-5 
+
+    lg:w-[70%]
+}
+
+.h1 {
+    @apply
+    text-3xl tracking-tighter font-bold
+    mt-4
+
+    lg:text-4xl
+}
+
+.updateTime {
+    @apply
+    block
+    text-sm font-semibold tracking-tighter capitalize
+    mt-4
+}
+
+.newsInfo {
+    @apply
+    my-5
+
+    lg:flex lg:justify-between
+}
+
+.createTime {
+    @apply
+    block
+    text-sm tracking-tighter 
+    text-left
+}
+
+.authorName {
+    @apply
+    block
+    text-sm font-bold tracking-tighter
+}
+
+.pageContent {
+    @apply
+    lg:flex lg:gap-4
+}
+
+.newsWrapper {
+    @apply
+    w-full
+
+    lg:w-[70%]
+}
+
+.newsMore {
+    @apply
+    flex-1 shrink-0 items-center
+    
+    md:mt-3
+    
+    2xl:flex 
+}
+
+.newsMoreText {
+    @apply
+    hidden
+    shrink-0 
+    mb-2 mr-1
+    font-bold
+
+    md:block
+}
+
+.aside {
+    @apply
+    hidden
+
+    lg:block
+    w-[30%]
+}
+
+.cardWrapper {
+    @apply
+    border rounded-lg overflow-hidden
+    mb-4
+}
