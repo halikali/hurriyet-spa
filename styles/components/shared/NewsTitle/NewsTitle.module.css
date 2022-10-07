@@ -1,0 +1,16 @@
+.h1 {
+    @apply
+    text-3xl tracking-tighter font-bold
+    mt-4
+
+    md:text-4xl
+    lg:text-[40px] lg:leading-[50px]
+    2xl:text-[44px] 2xl:leading-[55px]
+}
+
+.updateTime {
+    @apply
+    block
+    text-sm font-semibold tracking-tighter capitalize
+    mt-4
+}
