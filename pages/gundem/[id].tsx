@@ -2,10 +2,10 @@ import { NextPage } from "next";
 import Image from "next/image";
 
 import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
-import style from "styles/pages/CategoryPage.module.css";
-import Link from "next/link";
 import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTagList";
 import VerticalNewsCard from "components/shared/NewsCard/VerticalNewsCard";
+import NewsTitle from "components/shared/NewsTitle/NewsTitle";
+import style from "styles/pages/CategoryPage.module.css";
 
 const GundemDetail: NextPage = () => {
   return (
@@ -13,13 +13,10 @@ const GundemDetail: NextPage = () => {
       <main className={"main main--category"}>
         <div className={"wrapper"}>
           <Breadcrumb />
-          <h1 className={style.h1}>
-            {`'Tek gerçek kraliçe'nin kararı oğlunu çok kızdırdı: 'Babaanneleri
-            unvanlarını alıp çocuklarıma zarar verdi'`}
-          </h1>
-          <span className={style.updateTime}>
-            Güncelleme Tarihi: Eylül 29, 2022 17:00
-          </span>
+          <NewsTitle
+            title="'Tek gerçek kraliçe'nin kararı oğlunu çok kızdırdı: 'Babaanneleri unvanlarını alıp çocuklarıma zarar verdi'"
+            updatedDate="Güncelleme Tarihi: Eylül 29, 2022 17:00"
+          />
           <DetailPageTagList />
           <div className={style.pageContent}>
             <div className={style.newsWrapper}>
