@@ -18,26 +18,41 @@
     lg:w-[70%]
 }
 
-.h1 {
+.h2 {
     @apply
-    text-3xl tracking-tighter font-bold
-    mt-4
+    px-3 mb-5
+    text-xl font-bold
 
-    lg:text-4xl
+    2xl:px-10
 }
 
-.updateTime {
+.galleryBodyText {
     @apply
-    block
-    text-sm font-semibold tracking-tighter capitalize
-    mt-4
+    text-xl
+    my-5 px-6
 }
+
 
 .newsInfo {
     @apply
     my-5
 
     lg:flex lg:justify-between
+}
+
+.newsCard {
+    @apply
+    relative
+}
+
+.counter {
+    @apply
+    block
+    absolute top-4 left-4
+    w-11 h-7
+    bg-red-600
+    text-center text-white first-letter:font-bold -tracking-widest
+    rounded-md
 }
 
 .createTime {
