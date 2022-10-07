@@ -3,3 +3,8 @@ export interface ICategoryTitle {
   description: string;
   color?: string;
 }
+
+export interface INewsTitle {
+  title: string;
+  updatedDate: string;
+}
