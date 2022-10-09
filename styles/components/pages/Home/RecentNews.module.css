@@ -11,9 +11,14 @@
 
 .header {
     @apply
-    flex justify-between
+    flex justify-between items-center
     pb-3 mb-3
     border-b border-b-slate-200
+}
+
+.arrow {
+    @apply
+    cursor-pointer
 }
 
 .title {
