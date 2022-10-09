@@ -5,6 +5,7 @@ import CategoryTitle from "components/shared/CategoryTitle/CategoryTitle";
 import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
 import VerticalNewsCardWithSpotText from "components/shared/NewsCard/VerticalNewsCardWithSpotText";
 import style from "styles/pages/CategoryPage.module.css";
+import Link from "next/link";
 
 const index: NextPage = () => {
   return (
@@ -17,7 +18,6 @@ const index: NextPage = () => {
         />
         <div className={style.container}>
           <VerticalNewsCardWithSpotText />
-
           <ul className={style.list}>
             {Array.from({ length: 29 }).map((_, index) => (
               <li key={index} className={style.listItem}>

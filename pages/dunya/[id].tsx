@@ -7,7 +7,7 @@ import VerticalNewsCard from "components/shared/NewsCard/VerticalNewsCard";
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import style from "styles/pages/CategoryPage.module.css";
 
-const GundemDetailPage: NextPage = () => {
+const DunyaDetailPage: NextPage = () => {
   return (
     <div>
       <main className={"main main--category"}>
@@ -98,4 +98,4 @@ const GundemDetailPage: NextPage = () => {
   );
 };
 
-export default GundemDetailPage;
+export default DunyaDetailPage;
