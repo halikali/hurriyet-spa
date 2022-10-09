@@ -1,5 +1,9 @@
 #what-happened-slider {
-  .swiper-button-prev {
-    display: none;
+  padding-right: 45px;
+
+  .swiper-slide {
+    display: block;
+    width: auto;
+    padding-right: 15px;
   }
 }
