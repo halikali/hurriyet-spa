@@ -14,6 +14,7 @@ class MyDocument extends Document {
           <meta name="description" content="Hürriyet - Haber, Son dakika haberler, Güncel gazete haberleri" />
           <meta name="keywords" content="HTML, CSS, JavaScript" />
           <meta name="author" content="Ali Tunç" />
+          <meta name="robots" content="noindex"/>
         </Head>
         <body>
           <Main />
