@@ -21,7 +21,7 @@
     @apply
     text-base font-light
     p-[10px] pb-0 mb-2
-    line-clamp-4
+    line-clamp-2
 }
 
 .title {
