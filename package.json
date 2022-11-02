@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:prod": "npm run build && source-map-explorer .next/static/**/*.js",
     "start": "next start",
     "lint": "next lint"
   },
