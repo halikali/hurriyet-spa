@@ -50,7 +50,7 @@ const GundemDetailPage: NextPage = ({data}: any) => {
         <div>
             <main className={"main main--category"}>
                 <div className={"wrapper"}>
-                    <Breadcrumb/>
+                    <Breadcrumb category="gündem"/>
                     <NewsTitle
                         title="'Tek gerçek kraliçe'nin kararı oğlunu çok kızdırdı: 'Babaanneleri unvanlarını alıp çocuklarıma zarar verdi'"
                         updatedDate="Güncelleme Tarihi: Eylül 29, 2022 17:00"

@@ -12,7 +12,7 @@ const DunyaDetailPage: NextPage = () => {
     <div>
       <main className={"main main--category"}>
         <div className={"wrapper"}>
-          <Breadcrumb />
+          <Breadcrumb category="dünya" />
           <NewsTitle
             title="'Tek gerçek kraliçe'nin kararı oğlunu çok kızdırdı: 'Babaanneleri unvanlarını alıp çocuklarıma zarar verdi'"
             updatedDate="Güncelleme Tarihi: Eylül 29, 2022 17:00"

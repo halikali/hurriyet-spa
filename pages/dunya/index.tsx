@@ -1,4 +1,3 @@
-import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import CategoryTitle from "components/shared/CategoryTitle/CategoryTitle";
 import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
 import VerticalNewsCardWithSpotText from "components/shared/NewsCard/VerticalNewsCardWithSpotText";
