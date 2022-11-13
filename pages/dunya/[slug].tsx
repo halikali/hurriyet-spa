@@ -5,24 +5,21 @@ import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTagList";
 import VerticalNewsCard from "components/shared/NewsCard/VerticalNewsCard";
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
-import { getNewsDetail, getSingularNews } from "Services/NewsService";
-import env from "appsettings.json";
 import style from "styles/pages/CategoryPage.module.css";
+import { getNewsDetail, getSingularNews } from "Services/NewsService";
 
 export async function getStaticPaths() {
   let res;
-
   try {
-    res = await getNewsDetail("gündem").then((data) => data.data.data);
-  } catch (e: any) {
-    console.log(e);
+    res = await getNewsDetail("dünya").then((item) => item.data.data);
+  } catch (error) {
+    console.log(error);
   }
 
   return {
-    paths:
-      Array.from(res).map(
-        (item: any) => `/gundem/${item.attributes.slug}_${item.id}`
-      ) || [],
+    paths: [...res].map((item: any) => {
+      return `/dunya/${item.attributes.slug}_${item.id}`;
+    }),
     fallback: false,
   };
 }
@@ -32,10 +29,10 @@ export async function getStaticProps({ params }: any) {
 
   try {
     res = await getSingularNews(params.slug.split("_")[1], "news-details").then(
-      (data) => data.data.data
+      (item: any) => item.data.data
     );
-  } catch (e: any) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   }
 
   return {
@@ -46,22 +43,21 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-const GundemDetailPage: NextPage = ({ data }: any) => {
+const DunyaDetailPage: NextPage = ({ data }: any) => {
   const {
     category_name,
-    updatedAt,
     createdAt,
-    news_title,
-    news_image,
     news_content,
+    news_image,
+    news_title,
+    updatedAt,
   } = data.attributes;
-  
 
   return (
     <div>
       <main className={"main main--category"}>
         <div className={"wrapper"}>
-          <Breadcrumb category="gündem" />
+          <Breadcrumb category={category_name} />
           <NewsTitle
             title={news_title}
             updatedDate={`Güncelleme Tarihi: ${updatedAt}`}
@@ -71,7 +67,9 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
             <div className={style.newsWrapper}>
               <div>
                 <Image
-                  src={env.asset_base_url + news_image.data.attributes.url}
+                  src={
+                    "https://i4.hurimg.com/i/hurriyet/75/424x282/63359c554e3fe113fc195012.jpg"
+                  }
                   alt={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
                   title={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
                   width={160}
@@ -85,7 +83,10 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
                   </span>
                 </div>
               </div>
-              <div className="content" dangerouslySetInnerHTML={{__html:news_content}} />
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{ __html: news_content }}
+              />
               <div className={style.newsMore}>
                 <p className={style.newsMoreText}>
                   Haberlerle ilgili daha fazlası:
@@ -107,4 +108,4 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
   );
 };
 
-export default GundemDetailPage;
+export default DunyaDetailPage;

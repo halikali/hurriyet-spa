@@ -5,16 +5,63 @@ import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTagList";
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import style from "styles/pages/CategoryPage.module.css";
+import { getGalleryNews, getSingularNews } from "Services/NewsService";
 
-const DunyaGalleryDetailPage: NextPage = () => {
+export async function getStaticPaths() {
+  let res;
+
+  try {
+    res = await getGalleryNews("dünya").then((item) => item.data.data);
+  } catch (e: any) {
+    console.log(e);
+  }
+
+  return {
+    paths:
+      [...res].map(
+        (item: any) => `/dunya/galeri/${item.attributes.slug}_${item.id}`
+      ) || [],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }: any) {
+  let res;
+
+  try {
+    res = await getSingularNews(
+      params.slug.split("_")[1],
+      "gallery-details"
+    ).then((item) => item.data.data);
+  } catch (e: any) {
+    console.log(e);
+  }
+
+  return {
+    props: {
+      data: res ? res[0] : [],
+    },
+    revalidate: 600,
+  };
+}
+
+const DunyaGalleryDetailPage: NextPage = ({ data }: any) => {
+  const {
+    category_name,
+    createdAt,
+    gallery_item_contents,
+    news_spot_text,
+    news_title,
+    updatedAt,
+  } = data.attributes;
+
   return (
     <main className={"main main--category"}>
       <div className={"wrapper"}>
-        <Breadcrumb category="dünya" />
+        <Breadcrumb category={category_name} />
         <NewsTitle
-          title="'Tek gerçek kraliçe'nin kararı oğlunu çok kızdırdı: 'Babaanneleri
-unvanlarını alıp çocuklarıma zarar verdi'"
-          updatedDate="Güncelleme Tarihi: Eylül 29, 2022 17:00"
+          title={news_title}
+          updatedDate={`Güncelleme Tarihi: ${updatedAt}`}
         />
         <DetailPageTagList />
         <div className={style.pageContent}>
@@ -22,14 +69,12 @@ unvanlarını alıp çocuklarıma zarar verdi'"
             <div className={style.newsInfo}>
               <span className={style.authorName}>John Doe, JDH</span>
               <span className={style.createTime}>
-                Oluşturulma Tarihi: Eylül 29, 2022 11:22
+                Oluşturulma Tarihi: {createdAt}
               </span>
             </div>
-            <h2 className={style.h2}>
-              {`KYK borcu sorgulama ekranı, Kabine Toplantısı'nda alınan kararın ardından gündeme geldi. Gençlik ve Spor Bakanı Kasapoğlu'nun açıklamaları ile gündeme gelen KYK borcu faizleri ile ilgili Cumhurbaşkanı Erdoğan, "Kredi geri ödemelerinin herhangi bir enflasyon farkı veya faiz uygulaması olmaksızın sadece alınan kredi rakamı üzerinden yapılmasını kararlaştırdık." dedi. KYK faiz silme kararı sonrası üniversite eğitimlerinde kredi alanlar borçlarını hesaplamaya başladı. KYK borç bilgilerini e Devlet ekranı üzerinden öğrenilecek. Peki, KYK kredi borcu nasıl hesaplanır? İşte, KYK borcu hesaplama ve sorgulama ile ilgili bilgiler.`}
-            </h2>
+            <h2 className={style.h2}>{news_spot_text}</h2>
             <div className="content">
-              {Array.from({ length: 6 }).map((_, index) => (
+              {[...gallery_item_contents].map((item, index) => (
                 <div className={style.newsCard} key={index}>
                   <Image
                     key={index}
@@ -46,10 +91,15 @@ unvanlarını alıp çocuklarıma zarar verdi'"
                     height={90}
                     layout={"responsive"}
                   />
-                  <span className={style.counter}>1 / 6</span>
-                  <p className={style.galleryBodyText}>
-                    {`KYK kredi borcu hesaplamaları faiz silme kararı ile hız kazandı. Ekonomiye yönelik çalışmalar tüm hızıyla sürerken, Cumhurbaşkanı Erdoğan, KYK kredi borçları hakkında faiz uygulamasının kaldırıldığını ve sadece ana paranın ödeneceğini söyledi. KYK borcu bulunan vatandaşlar borç hesaplamalarını e Devlet üzerinden sorgulayarak öğrenecekler. KYK kredi borcu e Devlet internet sitesinden, "Öğrenim / Katkı Kredisi Geri Ödeme Sorgulama" ekranı üzerinden T.C kimlik numarası ve e Devlet şifresi ile sorgulanabiliyor.`}
-                  </p>
+                  <span className={style.counter}>
+                    {index + 1} / {gallery_item_contents.length}
+                  </span>
+                  <p
+                    className={style.galleryBodyText}
+                    dangerouslySetInnerHTML={{
+                      __html: item.gallery_text_content,
+                    }}
+                  />
                 </div>
               ))}
             </div>
