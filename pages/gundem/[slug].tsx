@@ -71,8 +71,8 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
               <div>
                 <Image
                   src={news_image.data.attributes.url}
-                  alt={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
-                  title={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
+                  alt={news_image.data.attributes.alternativeText}
+                  title={news_image.data.attributes.alternativeText}
                   width={160}
                   height={90}
                   layout={"responsive"}

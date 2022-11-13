@@ -67,11 +67,9 @@ const DunyaDetailPage: NextPage = ({ data }: any) => {
             <div className={style.newsWrapper}>
               <div>
                 <Image
-                  src={
-                    "https://i4.hurimg.com/i/hurriyet/75/424x282/63359c554e3fe113fc195012.jpg"
-                  }
-                  alt={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
-                  title={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
+                  src={news_image.data.attributes.url}
+                  alt={news_image.data.attributes.alternativeText}
+                  title={news_image.data.attributes.alternativeText}
                   width={160}
                   height={90}
                   layout={"responsive"}
