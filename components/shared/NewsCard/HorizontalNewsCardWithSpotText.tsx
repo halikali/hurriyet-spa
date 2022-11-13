@@ -12,6 +12,8 @@ interface IPageProps {
   news_spot_text?: string;
   category_name?: string;
   ancestor?: string;
+  image?: string;
+  alt?: string;
 }
 
 const HorizontalNewsCardWithSpotText: FC<IPageProps> = ({
@@ -21,17 +23,17 @@ const HorizontalNewsCardWithSpotText: FC<IPageProps> = ({
   id,
   category_name,
   ancestor,
+  image,
+  alt,
 }) => {
   return (
     <Link href={`/${utf8ToEnglish(category_name)}${ancestor}/${slug}_${id}`}>
       <figure className={style.newsCard}>
         <div className={style.imageWrapper}>
           <Image
-            src={
-              "https://i4.hurimg.com/i/hurriyet/75/424x282/63359c554e3fe113fc195012.jpg"
-            }
-            alt={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
-            title={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
+            src={image || ""}
+            alt={alt || ""}
+            title={alt || ""}
             width={160}
             height={90}
             layout={"responsive"}

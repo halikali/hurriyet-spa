@@ -16,6 +16,7 @@ type attributesType = {
   publishedAt: string;
   slug: string;
   news_spot_text: string;
+  news_image: any;
 };
 
 type newsType = {
@@ -48,6 +49,7 @@ export async function getServerSideProps(context: any) {
 }
 
 const index: NextPage<IPageProps> = ({ news }) => {
+  console.log(news);
   const mainNews = news[0];
   return (
     <>
@@ -71,6 +73,8 @@ const index: NextPage<IPageProps> = ({ news }) => {
               slug={mainNews.attributes.slug}
               category_name={mainNews.attributes.category_name}
               ancestor={mainNews.ancestor}
+              image = {mainNews.attributes?.news_image?.data?.attributes?.url}
+              alt = {mainNews.attributes.news_image.data.attributes.alternativeText}
             />
             <ul className={style.list}>
               {Array.from(news)
@@ -88,6 +92,8 @@ const index: NextPage<IPageProps> = ({ news }) => {
                       slug={item.attributes.slug}
                       category_name={item.attributes.category_name}
                       ancestor={item.ancestor}
+                      image = {item?.attributes?.news_image?.data?.attributes?.url}
+                      alt = {item?.attributes.news_image?.data?.attributes?.alternativeText}
                     />
                   </li>
                 ))}

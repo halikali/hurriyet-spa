@@ -55,13 +55,12 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
     news_image,
     news_content,
   } = data.attributes;
-  
 
   return (
     <div>
       <main className={"main main--category"}>
         <div className={"wrapper"}>
-          <Breadcrumb category="gündem" />
+          <Breadcrumb category={category_name} />
           <NewsTitle
             title={news_title}
             updatedDate={`Güncelleme Tarihi: ${updatedAt}`}
@@ -71,7 +70,7 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
             <div className={style.newsWrapper}>
               <div>
                 <Image
-                  src={env.asset_base_url + news_image.data.attributes.url}
+                  src={news_image.data.attributes.url}
                   alt={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
                   title={"Tek gerçek kraliçenin kararı oğlunu çok kızdırdı"}
                   width={160}
@@ -85,7 +84,10 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
                   </span>
                 </div>
               </div>
-              <div className="content" dangerouslySetInnerHTML={{__html:news_content}} />
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{ __html: news_content }}
+              />
               <div className={style.newsMore}>
                 <p className={style.newsMoreText}>
                   Haberlerle ilgili daha fazlası:

@@ -54,7 +54,6 @@ const GundemGalleryDetailPage: NextPage = ({ data }: any) => {
     news_spot_text,
     news_title,
   } = data.attributes;
-
   return (
     <main className={"main main--category"}>
       <div className={"wrapper"}>
