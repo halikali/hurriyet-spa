@@ -7,6 +7,7 @@ import VerticalNewsCard from "components/shared/NewsCard/VerticalNewsCard";
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import style from "styles/pages/CategoryPage.module.css";
 import { getNewsDetail, getSingularNews } from "Services/NewsService";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   let res;
@@ -55,6 +56,9 @@ const DunyaDetailPage: NextPage = ({ data }: any) => {
 
   return (
     <div>
+      <Head>
+        <title>{news_title}</title>
+      </Head>
       <main className={"main main--category"}>
         <div className={"wrapper"}>
           <Breadcrumb category={category_name} />

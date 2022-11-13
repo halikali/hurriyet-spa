@@ -8,6 +8,7 @@ import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import { getNewsDetail, getSingularNews } from "Services/NewsService";
 import env from "appsettings.json";
 import style from "styles/pages/CategoryPage.module.css";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   let res;
@@ -58,6 +59,9 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
 
   return (
     <div>
+      <Head>
+        <title>{news_title}</title>
+      </Head>
       <main className={"main main--category"}>
         <div className={"wrapper"}>
           <Breadcrumb category={category_name} />
