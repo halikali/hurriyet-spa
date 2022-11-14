@@ -14,7 +14,7 @@ export async function getStaticPaths() {
   try {
     res = await getNewsDetail("dünya").then((item) => item.data.data);
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 
   return {
@@ -33,7 +33,7 @@ export async function getStaticProps({ params }: any) {
       (item: any) => item.data.data
     );
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 
   return {

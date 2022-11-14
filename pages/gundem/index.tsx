@@ -49,7 +49,6 @@ export async function getServerSideProps(context: any) {
 }
 
 const index: NextPage<IPageProps> = ({ news }) => {
-  console.log(news);
   const mainNews = news[0];
   return (
     <>

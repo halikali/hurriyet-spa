@@ -15,8 +15,8 @@ export async function getStaticPaths() {
 
   try {
     res = await getNewsDetail("gündem").then((data) => data.data.data);
-  } catch (e: any) {
-    console.log(e);
+  } catch (error: any) {
+    throw error;
   }
 
   return {
@@ -35,8 +35,8 @@ export async function getStaticProps({ params }: any) {
     res = await getSingularNews(params.slug.split("_")[1], "news-details").then(
       (data) => data.data.data
     );
-  } catch (e: any) {
-    console.log(e);
+  } catch (error: any) {
+    throw error;
   }
 
   return {
