@@ -12,9 +12,7 @@ export async function getStaticPaths() {
 
   try {
     res = await getGalleryNews("gündem").then((data) => data.data.data);
-  } catch (error: any) {
-    throw error;
-  }
+  } catch (error: any) {}
 
   return {
     paths:
@@ -33,9 +31,7 @@ export async function getStaticProps({ params }: any) {
       params.slug.split("_")[1],
       "gallery-details"
     ).then((data) => data.data.data);
-  } catch (error: any) {
-    throw error;
-  }
+  } catch (error: any) {}
 
   return {
     props: {

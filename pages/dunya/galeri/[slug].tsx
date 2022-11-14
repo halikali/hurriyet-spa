@@ -13,7 +13,6 @@ export async function getStaticPaths() {
   try {
     res = await getGalleryNews("dünya").then((item) => item.data.data);
   } catch (error: any) {
-    throw error;
   }
 
   return {
@@ -34,7 +33,6 @@ export async function getStaticProps({ params }: any) {
       "gallery-details"
     ).then((item) => item.data.data);
   } catch (error: any) {
-    throw error;
   }
 
   return {

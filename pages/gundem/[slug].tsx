@@ -16,7 +16,6 @@ export async function getStaticPaths() {
   try {
     res = await getNewsDetail("gündem").then((data) => data.data.data);
   } catch (error: any) {
-    throw error;
   }
 
   return {
@@ -36,7 +35,6 @@ export async function getStaticProps({ params }: any) {
       (data) => data.data.data
     );
   } catch (error: any) {
-    throw error;
   }
 
   return {
