@@ -1,5 +1,6 @@
 import api from "../api";
 import qs from "qs";
+import { AreaToEppear } from "enums";
 
 const getGalleryNews = async (category: string) => {
   const query = qs.stringify(
@@ -60,4 +61,32 @@ const getSingularNews = async (
   return await api.get(type + "?" + query);
 };
 
-export { getGalleryNews, getNewsDetail, getSingularNews };
+const getNewsForAppearanceArea = async (areaName: AreaToEppear) => {
+  const query = qs.stringify(
+    {
+      populate: "*",
+      filters: {
+        area_to_appear: {
+          area_name: {
+            $eq: areaName,
+          },
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
+  const galleryNews = await api.get("gallery-details" + "?" + query);
+  const newsDetails = await api.get("news-details" + "?" + query);
+  const news = [galleryNews.data, newsDetails.data].flat();
+
+  return news;
+};
+
+export {
+  getGalleryNews,
+  getNewsDetail,
+  getSingularNews,
+  getNewsForAppearanceArea,
+};

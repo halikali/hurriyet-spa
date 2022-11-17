@@ -2,12 +2,13 @@ import Image from "next/image";
 import { FC } from "react";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { utf8ToEnglish } from "utils";
 
-import HomeCarouselNews from "mocks/HomeCarousel.json";
+interface IHomeCarousel {
+  news: [];
+}
 
-const HomeCarousel: FC = () => {
-  const { news } = HomeCarouselNews;
-
+const HomeCarousel: FC<IHomeCarousel> = ({ news }) => {
   return (
     <div>
       <Swiper
@@ -17,13 +18,17 @@ const HomeCarousel: FC = () => {
         className="home-carousel"
         loop={true}
       >
-        {news?.map((item, i) => (
-          <SwiperSlide key={i}>
-            <a href={item.href} key={`${item.href}${i}`}>
+        {news?.map((item: any, i) => (
+          <SwiperSlide key={item.attributes.slug}>
+            <a
+              href={`${utf8ToEnglish(item.attributes.category_name)}${
+                item.attributes.ancestor === "galeri" ? "/galeri" : ""
+              }/${item.attributes.slug}_${item.id}`}
+            >
               <Image
-                src={item.src}
-                alt={item.title}
-                title={item.title}
+                src={item.attributes.news_image.data.attributes.url}
+                alt={item.attributes.news_image.data.attributes.name}
+                title={item.attributes.news_title}
                 width={600}
                 height={400}
                 layout="responsive"

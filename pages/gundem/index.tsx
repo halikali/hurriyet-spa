@@ -1,11 +1,11 @@
 import { NextPage } from "next";
+import Head from "next/head";
 
 import CategoryTitle from "components/shared/CategoryTitle/CategoryTitle";
 import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
 import VerticalNewsCardWithSpotText from "components/shared/NewsCard/VerticalNewsCardWithSpotText";
 import style from "styles/pages/CategoryPage.module.css";
 import { getGalleryNews, getNewsDetail } from "../../Services/NewsService";
-import Head from "next/head";
 
 type attributesType = {
   news_title: string;
@@ -72,8 +72,10 @@ const index: NextPage<IPageProps> = ({ news }) => {
               slug={mainNews.attributes.slug}
               category_name={mainNews.attributes.category_name}
               ancestor={mainNews.ancestor}
-              image = {mainNews.attributes?.news_image?.data?.attributes?.url}
-              alt = {mainNews.attributes.news_image.data.attributes.alternativeText}
+              image={mainNews.attributes?.news_image?.data?.attributes?.url}
+              alt={
+                mainNews.attributes.news_image.data.attributes.alternativeText
+              }
             />
             <ul className={style.list}>
               {Array.from(news)
@@ -91,8 +93,13 @@ const index: NextPage<IPageProps> = ({ news }) => {
                       slug={item.attributes.slug}
                       category_name={item.attributes.category_name}
                       ancestor={item.ancestor}
-                      image = {item?.attributes?.news_image?.data?.attributes?.url}
-                      alt = {item?.attributes.news_image?.data?.attributes?.alternativeText}
+                      image={
+                        item?.attributes?.news_image?.data?.attributes?.url
+                      }
+                      alt={
+                        item?.attributes.news_image?.data?.attributes
+                          ?.alternativeText
+                      }
                     />
                   </li>
                 ))}

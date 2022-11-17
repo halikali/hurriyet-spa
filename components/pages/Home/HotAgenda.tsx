@@ -1,24 +1,40 @@
 import Image from "next/image";
 import { FC } from "react";
 
-import HotAgendNews from "mocks/HotAgenda.json";
 import style from "styles/components/pages/Home/HotAgenda.module.css";
+import { utf8ToEnglish } from "utils";
 
-const HotAgenda: FC = () => {
-  const { news } = HotAgendNews;
+interface IHotAgenda {
+  news: [];
+}
+
+const HotAgenda: FC<IHotAgenda> = ({ news }) => {
+  console.log(news);
 
   return (
     <div className={style.container}>
       <h2 className={style.title}>
-        <a href="https://www.hurriyet.com.tr/gundem/" target={"_blank"} rel="noreferrer">Sıcak Gündem</a>
+        <a
+          href="https://www.hurriyet.com.tr/gundem/"
+          target={"_blank"}
+          rel="noreferrer"
+        >
+          Sıcak Gündem
+        </a>
       </h2>
       <div className={style.wrapper}>
-        {news.map((item) => (
-          <a href={item.href} key={item.href} target={"_blank"} className={style.imageWrapper} rel="noreferrer">
+        {news.map((item: any) => (
+          <a
+            href={`${utf8ToEnglish(item.attributes.category_name)}${item.attributes.ancestor === "galeri" ? "/galeri" : ""}/${item.attributes.slug}_${item.id}`}
+            key={item.attributes.slug}
+            target={"_blank"}
+            className={style.imageWrapper}
+            rel="noreferrer"
+          >
             <Image
-              src={item.imageUrl}
-              alt={item.title}
-              title={item.title}
+              src={item.attributes.news_image.data.attributes.url}
+              alt={item.attributes.news_image.data.attributes.name}
+              title={item.attributes.news_title}
               width={800}
               height={550}
               className={style.image}

@@ -10,8 +10,36 @@ import RecentNews from "components/pages/Home/RecentNews/RecentNews";
 import Seperator from "components/shared/Seperator/Seperator";
 import HorizontalNewsCard from "components/shared/NewsCard/HorizontalNewsCard";
 import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
+import { getNewsForAppearanceArea } from "Services/NewsService";
+import { AreaToEppear } from "enums";
 
-const Home: NextPage = () => {
+export async function getServerSideProps(context: any) {
+  const hotAgendaNews = await getNewsForAppearanceArea(
+    AreaToEppear.HOT_AGENDA
+  ).then((item) => item);
+
+  const mainSliderNews = await getNewsForAppearanceArea(
+    AreaToEppear.MAIN_SLIDER
+  ).then((item) => item);
+
+  const mainAsideNews = await getNewsForAppearanceArea(
+    AreaToEppear.MAIN_ASIDE
+  ).then((item) => item);
+
+  return {
+    props: {
+      news: {
+        hotAgenda: hotAgendaNews.map((item) => item.data).flat() || [],
+        mainSlider: mainSliderNews.map((item) => item.data).flat() || [],
+        mainAside: mainAsideNews.map((item) => item.data).flat() || [],
+      },
+    },
+  };
+}
+
+const Home: NextPage = ({ news }: any) => {
+  const { hotAgenda, mainSlider, mainAside } = news;
+
   return (
     <main className={"main main--home"}>
       <div className={"wrapper"}>
@@ -19,13 +47,13 @@ const Home: NextPage = () => {
           <title>Hürriyet ana sayfa</title>
         </Head>
         <div className={style.hotAgendaWrapper}>
-          <HotAgenda />
+          <HotAgenda news={hotAgenda} />
         </div>
 
         <div className={style.landingWrapper}>
           <div className={style.main}>
             <div className={style.homeCarouselWrapper}>
-              <HomeCarousel />
+              <HomeCarousel news={mainSlider} />
             </div>
             <CurrencyWidget />
             <div className={style.highlightBox}>
