@@ -60,6 +60,7 @@ export async function getServerSideProps(context: any) {
         smallCardNews: smallCardNews.map((item) => item.data).flat() || [],
       },
     },
+    revalidate: 600,
   };
 }
 
