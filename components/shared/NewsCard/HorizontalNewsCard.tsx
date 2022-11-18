@@ -2,17 +2,20 @@ import Image from "next/image";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/HorizontalNewsCard.module.css";
+import { utf8ToEnglish } from "utils";
 
-const HorizontalNewsCard: FC = () => {
+interface IHorizontalNewsCard {
+  newsData: any;
+}
+
+const HorizontalNewsCard: FC<IHorizontalNewsCard> = ({ newsData }) => {
   return (
     <figure className={style.newsCard}>
       <div className={style.imageWrapper}>
         <Image
-          src={
-            "https://i4.hurimg.com/i/hurriyet/75/348x195/63344dea4e3fe10d2ca89857.jpg"
-          }
-          alt={"20nci şehir hastanesi...  Beyaz reformun bir sonraki aşaması"}
-          title={"20nci şehir hastanesi...  Beyaz reformun bir sonraki aşaması"}
+          src={newsData?.attributes?.news_image.data?.attributes?.url}
+          alt={newsData?.attributes?.news_image.data?.attributes?.name}
+          title={newsData?.attributes?.news_title}
           width={160}
           height={90}
           layout={"responsive"}
@@ -21,15 +24,19 @@ const HorizontalNewsCard: FC = () => {
       </div>
       <figcaption className={style.figcaption}>
         <a
-          href="https://www.hurriyet.com.tr/gundem/son-dakika-etlik-sehir-hastanesi-aciliyor-bakan-koca-elimizden-gelenin-en-iyisini-yaptik-42144632"
-          title="20nci şehir hastanesi...  Beyaz reformun bir sonraki aşaması"
+          href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
+            newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
+          }/${newsData?.attributes?.slug}_${newsData?.id}`}
+          title={newsData?.attributes?.news_title}
           className={style.title}
         >
-          20nci şehir hastanesi... Beyaz reformun bir sonraki aşaması
+          {newsData?.attributes?.news_title}
         </a>
         <a
-          href="https://www.hurriyet.com.tr/haberleri/etlik-sehir-hastanesi"
-          title="#etlik şehir hastanesi"
+          href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
+            newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
+          }/${newsData?.attributes?.slug}_${newsData?.id}`}
+          title={newsData?.attributes?.news_title}
           className={style.tag}
         >
           #etlik şehir hastanesi

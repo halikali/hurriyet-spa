@@ -26,19 +26,54 @@ export async function getServerSideProps(context: any) {
     AreaToEppear.MAIN_ASIDE
   ).then((item) => item);
 
+  const highlightBoxNews = await getNewsForAppearanceArea(
+    AreaToEppear.HIGHLIGHT_BOX
+  ).then((item) => item);
+
+  const doNotOverlookFullSize = await getNewsForAppearanceArea(
+    AreaToEppear.DO_NOT_OVERLOOK_FULL_SİZE
+  ).then((item) => item);
+
+  const doNotOverlook = await getNewsForAppearanceArea(
+    AreaToEppear.DO_NOT_OVERLOOK
+  ).then((item) => item);
+
+  const recentNews = await getNewsForAppearanceArea(
+    AreaToEppear.RECENT_NEWS
+  ).then((item) => item);
+
+  const smallCardNews = await getNewsForAppearanceArea(
+    AreaToEppear.SMALL_NEWS_CARDS
+  ).then((item) => item);
+
   return {
     props: {
       news: {
         hotAgenda: hotAgendaNews.map((item) => item.data).flat() || [],
         mainSlider: mainSliderNews.map((item) => item.data).flat() || [],
         mainAside: mainAsideNews.map((item) => item.data).flat() || [],
+        highLight: highlightBoxNews.map((item) => item.data).flat() || [],
+        doNotOverlookFullSize:
+          doNotOverlookFullSize.map((item) => item.data).flat()[0] || [],
+        doNotOverlook: doNotOverlook.map((item) => item.data).flat() || [],
+        recentNews: recentNews.map((item) => item.data).flat() || [],
+        smallCardNews: smallCardNews.map((item) => item.data).flat() || [],
       },
     },
   };
 }
 
 const Home: NextPage = ({ news }: any) => {
-  const { hotAgenda, mainSlider, mainAside } = news;
+  const {
+    hotAgenda,
+    mainSlider,
+    mainAside,
+    highLight,
+    smallCardNews,
+    recentNews,
+    doNotOverlook,
+    doNotOverlookFullSize,
+  } = news;
 
   return (
     <main className={"main main--home"}>
@@ -57,38 +92,49 @@ const Home: NextPage = ({ news }: any) => {
             </div>
             <CurrencyWidget />
             <div className={style.highlightBox}>
-              <VerticaNewsCard />
-              <VerticaNewsCard />
-              <VerticaNewsCard />
+              {[...highLight].map((item) => (
+                <VerticaNewsCard newsData={item} key={item.attributes.slug} />
+              ))}
             </div>
           </div>
           <aside className={style.aside}>
-            <VerticaNewsCard />
-            <VerticaNewsCard />
-            <RecentNews />
+            {[...mainAside].map((item) => (
+              <VerticaNewsCard newsData={item} key={item.attributes.slug} />
+            ))}
+
+            <RecentNews news={recentNews} />
           </aside>
         </div>
         <Seperator />
 
         <div className={style.horizontalCardWrapper}>
-          <HorizontalNewsCardWithSpotText />
+          <HorizontalNewsCardWithSpotText
+            alt={doNotOverlookFullSize.attributes?.title}
+            ancestor={doNotOverlookFullSize.attributes?.ancestor}
+            category_name={doNotOverlookFullSize.attributes?.category_name}
+            id={doNotOverlookFullSize?.id}
+            image={
+              doNotOverlookFullSize.attributes?.news_image?.data?.attributes
+                ?.url
+            }
+            news_spot_text={
+              doNotOverlookFullSize.attributes?.news_spot_text ||
+              "Lorem ipsum dolor sit amet"
+            }
+            news_title={doNotOverlookFullSize.attributes?.news_title}
+            slug={doNotOverlookFullSize.attributes?.slug}
+          />
         </div>
 
         <div className={style.spotlessHorizontalNewsCardWrapper}>
-          <HorizontalNewsCard />
-          <HorizontalNewsCard />
-          <HorizontalNewsCard />
-          <HorizontalNewsCard />
+          {[...doNotOverlook].map((item) => (
+            <HorizontalNewsCard newsData={item} key={item.attributes.slug} />
+          ))}
         </div>
         <div className={style.contentWrapper}>
-          <VerticaNewsCard />
-          <VerticaNewsCard />
-          <VerticaNewsCard />
-          <VerticaNewsCard />
-          <VerticaNewsCard />
-          <VerticaNewsCard />
-          <VerticaNewsCard />
-          <VerticaNewsCard />
+          {[...smallCardNews].map((item) => (
+            <VerticaNewsCard newsData={item} key={item.attributes.slug} />
+          ))}
         </div>
       </div>
     </main>

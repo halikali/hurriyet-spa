@@ -5,7 +5,11 @@ import Image from "next/image";
 import assets from "assets";
 import style from "styles/components/pages/Home/RecentNews.module.css";
 
-const RecentNews: FC = () => {
+interface IRecentNews {
+  news: [];
+}
+
+const RecentNews: FC<IRecentNews> = ({ news }) => {
   return (
     <div className={style.recentNews}>
       <div className={style.header}>
@@ -21,13 +25,9 @@ const RecentNews: FC = () => {
       </div>
 
       <ul className={style.list}>
-        <RecentNewsListItem />
-        <RecentNewsListItem />
-        <RecentNewsListItem />
-        <RecentNewsListItem />
-        <RecentNewsListItem />
-        <RecentNewsListItem />
-        <RecentNewsListItem />
+        {[...news].map((item: any) => (
+          <RecentNewsListItem newsData={item} key={item.attributes.slug} />
+        ))}
       </ul>
     </div>
   );

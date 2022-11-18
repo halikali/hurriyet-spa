@@ -92,7 +92,7 @@ const DunyaGalleryDetailPage: NextPage = ({ data }: any) => {
                   <span className={style.counter}>
                     {index + 1} / {gallery_item_contents.length}
                   </span>
-                  <p
+                  <div
                     className={style.galleryBodyText}
                     dangerouslySetInnerHTML={{
                       __html: item.gallery_text_content,

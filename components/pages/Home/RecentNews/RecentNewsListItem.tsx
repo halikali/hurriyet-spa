@@ -3,27 +3,35 @@ import Link from "next/link";
 import { FC } from "react";
 
 import style from "styles/components/pages/Home/RecentNews.module.css";
+import { utf8ToEnglish } from "utils";
+interface IRecentNewsListItem {
+  newsData: any;
+}
 
-const RecentNewsListItem: FC = () => {
+const RecentNewsListItem: FC<IRecentNewsListItem> = ({ newsData }) => {
   return (
     <li className={style.listItem}>
       <div className={style.wrapper}>
-        <Link href="/">
-          <a className={style.newsTitle}>
-            Derbi öncesi Vodafone Park önünde olay!
-          </a>
+        <Link
+          href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
+            newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
+          }/${newsData?.attributes?.slug}_${newsData?.id}`}
+        >
+          <a className={style.newsTitle}>{newsData?.attributes?.news_title}</a>
         </Link>
-        <Link href="/">
+        <Link
+          href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
+            newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
+          }/${newsData?.attributes?.slug}_${newsData?.id}`}
+        >
           <a className={style.newsTag}>#Beşiktaş - Fenerbahçe</a>
         </Link>
       </div>
       <div className={style.imageWrapper}>
         <Image
-          src={
-            "https://i4.hurimg.com/i/hurriyet/75/66x66/633543d44e3fe0050caf0fbf.jpg"
-          }
-          alt={"Düğünde istek parça kavgası karakolda bitti"}
-          title={"Düğünde istek parça kavgası karakolda bitti"}
+          src={newsData?.attributes?.news_image.data?.attributes?.url}
+          alt={newsData?.attributes?.news_image.data?.attributes?.name}
+          title={newsData?.attributes?.news_title}
           width={66}
           height={66}
           className={style.image}

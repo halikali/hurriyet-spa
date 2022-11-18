@@ -44,6 +44,11 @@
     2xl:pr-1
 }
 
+.imageWrapper {
+    @apply
+    min-w-[50px]
+}
+
 .newsTitle {
     @apply
     block

@@ -98,11 +98,11 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
               </div>
             </div>
             <aside className={style.aside}>
-              {Array.from({ length: 3 }).map((_, index) => (
+              {/* {Array.from({ length: 3 }).map((_, index) => (
                 <div key={index} className={style.cardWrapper}>
                   <VerticalNewsCard />
                 </div>
-              ))}
+              ))} */}
             </aside>
           </div>
         </div>

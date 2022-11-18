@@ -3,6 +3,7 @@
     mb-4
     rounded-md
     overflow-hidden
+    flex-1
 }
 
 .imageWrapper {
@@ -14,14 +15,14 @@
     @apply
     bg-white
     pb-4
-   
+   min-h-[133px]
 }
 
 .title {
     @apply
     block
     p-[10px] pb-0
-    text-base font-bold
+    text-base font-bold line-clamp-3
 }
 
 .tag {

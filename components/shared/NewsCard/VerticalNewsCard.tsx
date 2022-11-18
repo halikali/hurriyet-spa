@@ -2,38 +2,37 @@ import Image from "next/image";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/VerticalNewsCard.module.css";
+import { utf8ToEnglish } from "utils";
 
-const VerticalNewsCard: FC = () => {
+interface IVerticalNewsCard {
+  newsData: any;
+}
+
+const VerticalNewsCard: FC<IVerticalNewsCard> = ({ newsData }) => {
   return (
     <figure className={style.newsCard}>
-      <div className={style.imageWrapper}>
+      <a
+        className={style.imageWrapper}
+        href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
+          newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
+        }/${newsData?.attributes?.slug}_${newsData?.id}`}
+        title={newsData?.attributes?.news_title}
+        target={"_blank"}
+        rel="noreferrer"
+      >
         <Image
-          src={
-            "https://i4.hurimg.com/i/hurriyet/75/348x195/63344dea4e3fe10d2ca89857.jpg"
-          }
-          alt={"20nci şehir hastanesi...  Beyaz reformun bir sonraki aşaması"}
-          title={"20nci şehir hastanesi...  Beyaz reformun bir sonraki aşaması"}
+          src={newsData?.attributes?.news_image.data?.attributes?.url}
+          alt={newsData?.attributes?.news_image.data?.attributes?.name}
+          title={newsData?.attributes?.news_title}
           width={160}
           height={90}
           layout={"responsive"}
           className={style.image}
         />
-      </div>
+      </a>
       <figcaption className={style.figcaption}>
-        <a
-          href="https://www.hurriyet.com.tr/gundem/son-dakika-etlik-sehir-hastanesi-aciliyor-bakan-koca-elimizden-gelenin-en-iyisini-yaptik-42144632"
-          title="20nci şehir hastanesi...  Beyaz reformun bir sonraki aşaması"
-          className={style.title}
-        >
-          20nci şehir hastanesi... Beyaz reformun bir sonraki aşaması
-        </a>
-        <a
-          href="https://www.hurriyet.com.tr/haberleri/etlik-sehir-hastanesi"
-          title="#etlik şehir hastanesi"
-          className={style.tag}
-        >
-          #etlik şehir hastanesi
-        </a>
+        <p className={style.title}>{newsData?.attributes?.news_title}</p>
+        <p className={style.tag}>#etlik şehir hastanesi</p>
       </figcaption>
     </figure>
   );
