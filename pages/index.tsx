@@ -13,7 +13,7 @@ import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/Horizonta
 import { getNewsForAppearanceArea } from "Services/NewsService";
 import { AreaToEppear } from "enums";
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps({ req, res }: any) {
   const hotAgendaNews = await getNewsForAppearanceArea(
     AreaToEppear.HOT_AGENDA
   ).then((item) => item);
@@ -46,6 +46,11 @@ export async function getServerSideProps(context: any) {
     AreaToEppear.SMALL_NEWS_CARDS
   ).then((item) => item);
 
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=599, stale-while-revalidate=599"
+  );
+
   return {
     props: {
       news: {
@@ -60,7 +65,6 @@ export async function getServerSideProps(context: any) {
         smallCardNews: smallCardNews.map((item) => item.data).flat() || [],
       },
     },
-    revalidate: 600,
   };
 }
 
