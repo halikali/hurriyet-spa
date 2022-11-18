@@ -17,31 +17,26 @@ type attributesType = {
   slug: string;
   news_spot_text: string;
   news_image: any;
+  ancestor: string;
 };
 
 type newsType = {
   id: number;
   attributes: attributesType;
-  ancestor: string;
 };
 
 interface IPageProps {
   news: newsType[];
 }
 
-export async function getServerSideProps(context: any) {
-  const galleryNews = getGalleryNews("gündem").then((item) =>
-    item.data.data.map((obj: any): any => ({
-      ...obj,
-      ancestor: "/galeri",
-    }))
+export async function getServerSideProps({ req, res }: any) {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=599, stale-while-revalidate=599"
   );
-  const newsDetail = getNewsDetail("gündem").then((item) =>
-    item.data.data.map((obj: any): any => ({
-      ...obj,
-      ancestor: "",
-    }))
-  );
+
+  const galleryNews = getGalleryNews("gündem").then((item) => item.data.data);
+  const newsDetail = getNewsDetail("gündem").then((item) => item.data.data);
 
   return {
     props: { news: [await newsDetail, await galleryNews].flat() },
@@ -71,7 +66,7 @@ const index: NextPage<IPageProps> = ({ news }) => {
               }
               slug={mainNews.attributes.slug}
               category_name={mainNews.attributes.category_name}
-              ancestor={mainNews.ancestor}
+              ancestor={mainNews.attributes?.ancestor}
               image={mainNews.attributes?.news_image?.data?.attributes?.url}
               alt={
                 mainNews.attributes.news_image.data.attributes.alternativeText
@@ -92,7 +87,7 @@ const index: NextPage<IPageProps> = ({ news }) => {
                       }
                       slug={item.attributes.slug}
                       category_name={item.attributes.category_name}
-                      ancestor={item.ancestor}
+                      ancestor={item.attributes.ancestor}
                       image={
                         item?.attributes?.news_image?.data?.attributes?.url
                       }
