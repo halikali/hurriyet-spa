@@ -9,7 +9,6 @@ interface IHotAgenda {
 }
 
 const HotAgenda: FC<IHotAgenda> = ({ news }) => {
-  console.log(news);
 
   return (
     <div className={style.container}>
