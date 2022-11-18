@@ -49,11 +49,18 @@ const VerticalNewsCardWithSpotText: FC<IPageProps> = ({
             href={`/${utf8ToEnglish(category_name)}${calculateAncestor(
               ancestor
             )}/${slug}_${id}`}
+            title={alt || ""}
             className={style.title}
           >
             {news_title}
           </a>
-          <a title={alt || ""} className={style.spotText}>
+          <a
+            href={`/${utf8ToEnglish(category_name)}${calculateAncestor(
+              ancestor
+            )}/${slug}_${id}`}
+            title={alt || ""}
+            className={style.spotText}
+          >
             {news_spot_text}
           </a>
           <a
