@@ -19,4 +19,9 @@ const utf8ToEnglish = (word: string | undefined) => {
   return convertedWord;
 };
 
-export { utf8ToEnglish };
+const calculateAncestor = (ancestor: string | undefined): string => {
+  if (ancestor === "galeri") return "/galeri";
+  else return "";
+};
+
+export { utf8ToEnglish, calculateAncestor };

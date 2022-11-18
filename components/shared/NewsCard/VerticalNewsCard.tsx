@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/VerticalNewsCard.module.css";
-import { utf8ToEnglish } from "utils";
+import { calculateAncestor, utf8ToEnglish } from "utils";
 
 interface IVerticalNewsCard {
   newsData: any;
@@ -13,9 +13,11 @@ const VerticalNewsCard: FC<IVerticalNewsCard> = ({ newsData }) => {
     <figure className={style.newsCard}>
       <a
         className={style.imageWrapper}
-        href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
-          newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
-        }/${newsData?.attributes?.slug}_${newsData?.id}`}
+        href={`${utf8ToEnglish(
+          newsData?.attributes?.category_name
+        )}${calculateAncestor(newsData?.attributes?.ancestor)}/${
+          newsData?.attributes?.slug
+        }_${newsData?.id}`}
         title={newsData?.attributes?.news_title}
         target={"_blank"}
         rel="noreferrer"

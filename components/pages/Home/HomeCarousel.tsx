@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { utf8ToEnglish } from "utils";
+import { calculateAncestor, utf8ToEnglish } from "utils";
 
 interface IHomeCarousel {
   news: [];
@@ -21,9 +21,11 @@ const HomeCarousel: FC<IHomeCarousel> = ({ news }) => {
         {news?.map((item: any, i) => (
           <SwiperSlide key={item.attributes.slug}>
             <a
-              href={`${utf8ToEnglish(item.attributes.category_name)}${
-                item.attributes.ancestor === "galeri" ? "/galeri" : ""
-              }/${item.attributes.slug}_${item.id}`}
+              href={`${utf8ToEnglish(
+                item.attributes.category_name
+              )}${calculateAncestor(item?.attributes?.ancestor)}/${
+                item.attributes.slug
+              }_${item.id}`}
             >
               <Image
                 src={item.attributes.news_image.data.attributes.url}

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/HorizontalNewsCard.module.css";
-import { utf8ToEnglish } from "utils";
+import { calculateAncestor, utf8ToEnglish } from "utils";
 
 interface IHorizontalNewsCard {
   newsData: any;
@@ -24,18 +24,22 @@ const HorizontalNewsCard: FC<IHorizontalNewsCard> = ({ newsData }) => {
       </div>
       <figcaption className={style.figcaption}>
         <a
-          href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
-            newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
-          }/${newsData?.attributes?.slug}_${newsData?.id}`}
+          href={`${utf8ToEnglish(
+            newsData?.attributes?.category_name
+          )}${calculateAncestor(newsData?.attributes?.ancestor)}/${
+            newsData?.attributes?.slug
+          }_${newsData?.id}`}
           title={newsData?.attributes?.news_title}
           className={style.title}
         >
           {newsData?.attributes?.news_title}
         </a>
         <a
-          href={`${utf8ToEnglish(newsData?.attributes?.category_name)}${
-            newsData?.attributes?.ancestor === "galeri" ? "/galeri" : ""
-          }/${newsData?.attributes?.slug}_${newsData?.id}`}
+          href={`${utf8ToEnglish(
+            newsData?.attributes?.category_name
+          )}${calculateAncestor(newsData?.attributes?.ancestor)}/${
+            newsData?.attributes?.slug
+          }_${newsData?.id}`}
           title={newsData?.attributes?.news_title}
           className={style.tag}
         >

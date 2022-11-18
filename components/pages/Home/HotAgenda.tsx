@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import style from "styles/components/pages/Home/HotAgenda.module.css";
-import { utf8ToEnglish } from "utils";
+import { calculateAncestor, utf8ToEnglish } from "utils";
 
 interface IHotAgenda {
   news: [];
@@ -24,7 +24,7 @@ const HotAgenda: FC<IHotAgenda> = ({ news }) => {
       <div className={style.wrapper}>
         {news.map((item: any) => (
           <a
-            href={`${utf8ToEnglish(item.attributes.category_name)}${item.attributes.ancestor === "galeri" ? "/galeri" : ""}/${item.attributes.slug}_${item.id}`}
+            href={`${utf8ToEnglish(item.attributes.category_name)}${calculateAncestor(item.attributes.ancestor)}/${item.attributes.slug}_${item.id}`}
             key={item.attributes.slug}
             target={"_blank"}
             className={style.imageWrapper}

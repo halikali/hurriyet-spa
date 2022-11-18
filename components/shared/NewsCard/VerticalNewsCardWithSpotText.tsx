@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/VerticalNewsCardWithSpotText.module.css";
-import { utf8ToEnglish } from "../../../utils";
+import { calculateAncestor, utf8ToEnglish } from "utils";
 
 interface IPageProps {
   id?: string;
@@ -24,10 +24,14 @@ const VerticalNewsCardWithSpotText: FC<IPageProps> = ({
   category_name,
   ancestor,
   image,
-  alt
+  alt,
 }) => {
   return (
-    <Link href={`/${utf8ToEnglish(category_name)}${ancestor}/${slug}_${id}`}>
+    <Link
+      href={`/${utf8ToEnglish(category_name)}${calculateAncestor(
+        ancestor
+      )}/${slug}_${id}`}
+    >
       <figure className={style.newsCard}>
         <div className={style.imageWrapper}>
           <Image
@@ -42,22 +46,21 @@ const VerticalNewsCardWithSpotText: FC<IPageProps> = ({
         </div>
         <figcaption className={style.figcaption}>
           <a
-            href="https://www.hurriyet.com.tr/arama/#/?page=1&key=danimarka-kralicesi-margrethe-2&how=Article,Column,NewsPhotoGallery,NewsVideo,Recipe&isDetail=false"
-            title="Tek gerçek kraliçe'nin kararı oğlunu çok kızdırdı"
+            href={`/${utf8ToEnglish(category_name)}${calculateAncestor(
+              ancestor
+            )}/${slug}_${id}`}
             className={style.title}
           >
             {news_title}
           </a>
-          <a
-            href="https://www.hurriyet.com.tr/arama/#/?page=1&key=danimarka-kralicesi-margrethe-2&how=Article,Column,NewsPhotoGallery,NewsVideo,Recipe&isDetail=false"
-            title="Tek gerçek kraliçe'nin kararı oğlunu çok kızdırdı"
-            className={style.spotText}
-          >
+          <a title={alt || ""} className={style.spotText}>
             {news_spot_text}
           </a>
           <a
-            href="https://www.hurriyet.com.tr/arama/#/?page=1&key=danimarka-kralicesi-margrethe-2&how=Article,Column,NewsPhotoGallery,NewsVideo,Recipe&isDetail=false"
-            title="#danimarka kraliçesi margrethe 2"
+            href={`/${utf8ToEnglish(category_name)}${calculateAncestor(
+              ancestor
+            )}/${slug}_${id}`}
+            title={alt || ""}
             className={style.tag}
           >
             #danimarka kraliçesi margrethe 2

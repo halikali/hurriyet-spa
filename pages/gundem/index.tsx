@@ -4,8 +4,8 @@ import Head from "next/head";
 import CategoryTitle from "components/shared/CategoryTitle/CategoryTitle";
 import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
 import VerticalNewsCardWithSpotText from "components/shared/NewsCard/VerticalNewsCardWithSpotText";
+import { getGalleryNews, getNewsDetail } from "Services/NewsService";
 import style from "styles/pages/CategoryPage.module.css";
-import { getGalleryNews, getNewsDetail } from "../../Services/NewsService";
 
 type attributesType = {
   news_title: string;

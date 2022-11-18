@@ -4,7 +4,7 @@ import VerticalNewsCardWithSpotText from "components/shared/NewsCard/VerticalNew
 import { NextPage } from "next";
 import Head from "next/head";
 import style from "styles/pages/CategoryPage.module.css";
-import { getGalleryNews, getNewsDetail } from "../../Services/NewsService";
+import { getGalleryNews, getNewsDetail } from "Services/NewsService";
 
 type attributesType = {
   news_title: string;
