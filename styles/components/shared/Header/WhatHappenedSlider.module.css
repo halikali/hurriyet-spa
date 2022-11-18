@@ -23,7 +23,7 @@
 
 .sliderTitle {
     @apply
-    text-base font-bold text-red-500 uppercase
+    text-base font-bold text-red-600 uppercase
     mr-1
 }
 
