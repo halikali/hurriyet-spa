@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import Head from "next/head";
 
 import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTagList";
@@ -52,6 +53,9 @@ const GundemGalleryDetailPage: NextPage = ({ data }: any) => {
   } = data.attributes;
   return (
     <main className={"main main--category"}>
+      <Head>
+        <title>{news_title}</title>
+      </Head>
       <div className={"wrapper"}>
         <Breadcrumb category={category_name} />
         <NewsTitle

@@ -1,19 +1,19 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import Head from "next/head";
 
 import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTagList";
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
-import style from "styles/pages/CategoryPage.module.css";
 import { getGalleryNews, getSingularNews } from "Services/NewsService";
+import style from "styles/pages/CategoryPage.module.css";
 
 export async function getStaticPaths() {
   let res;
 
   try {
     res = await getGalleryNews("dünya").then((item) => item.data.data);
-  } catch (error: any) {
-  }
+  } catch (error: any) {}
 
   return {
     paths:
@@ -32,8 +32,7 @@ export async function getStaticProps({ params }: any) {
       params.slug.split("_")[1],
       "gallery-details"
     ).then((item) => item.data.data);
-  } catch (error: any) {
-  }
+  } catch (error: any) {}
 
   return {
     props: {
@@ -55,6 +54,10 @@ const DunyaGalleryDetailPage: NextPage = ({ data }: any) => {
 
   return (
     <main className={"main main--category"}>
+      <Head>
+        <title>{news_title}</title>
+      </Head>
+
       <div className={"wrapper"}>
         <Breadcrumb category={category_name} />
         <NewsTitle
