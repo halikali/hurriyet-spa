@@ -32,7 +32,9 @@
 
 .imageWrapper {
     @apply
-    min-w-[230px] min-h-[130px]  max-w-sm max-h-44
+    min-w-[230px] min-h-[130px]  max-w-sm max-h-44 
+
+    2xl:max-h-56
 }
 
 .image {

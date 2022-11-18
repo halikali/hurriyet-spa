@@ -35,7 +35,7 @@
 
 .listItem {
     @apply
-    flex 
+    flex justify-between
     mb-3
 }
 
@@ -47,6 +47,12 @@
 .imageWrapper {
     @apply
     min-w-[50px]
+    max-w-[50px]
+
+    2xl:min-w-[60px]
+    2xl:max-w-[60px]
+    2xl:overflow-hidden
+
 }
 
 .newsTitle {
