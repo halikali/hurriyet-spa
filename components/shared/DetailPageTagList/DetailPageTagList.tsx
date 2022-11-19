@@ -1,26 +1,23 @@
 import Link from "next/link";
 import { FC } from "react";
 
-import style from "styles/components/shared/DetailPageTagList/DetailPageTagList.module.css"
+import style from "styles/components/shared/DetailPageTagList/DetailPageTagList.module.css";
+import { parseToArray } from "utils";
 
-const DetailPageTagList: FC = () => {
+interface IDetailPageTagList {
+  tags: string;
+}
+
+const DetailPageTagList: FC<IDetailPageTagList> = ({ tags }) => {
   return (
     <ul className={style.tagList}>
-      <li className={style.tagListItem}>
-        <Link href={"/"}>
-          <a className={style.link}>#mustafa şentop</a>
-        </Link>
-      </li>
-      <li className={style.tagListItem}>
-        <Link href={"/"}>
-          <a className={style.link}>#Danimarka Kraliçesi Margrethe 2</a>
-        </Link>
-      </li>
-      <li className={style.tagListItem}>
-        <Link href={"/"}>
-          <a className={style.link}>#Danimarka Kraliçesi Margrethe 2</a>
-        </Link>
-      </li>
+      {parseToArray(tags).map((item, i) => (
+        <li className={style.tagListItem} key={item + i}>
+          <Link href={`/haberleri/${item}`}>
+            <a className={style.link}>#{item}</a>
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 };

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/HorizontalNewsCard.module.css";
-import { calculateAncestor, utf8ToEnglish } from "utils";
+import { calculateAncestor, parseToArray, utf8ToEnglish } from "utils";
 
 interface IHorizontalNewsCard {
   newsData: any;
@@ -43,7 +43,7 @@ const HorizontalNewsCard: FC<IHorizontalNewsCard> = ({ newsData }) => {
           title={newsData?.attributes?.news_title}
           className={style.tag}
         >
-          #etlik şehir hastanesi
+          #{parseToArray(newsData.attributes.tags)[0]}
         </a>
       </figcaption>
     </figure>

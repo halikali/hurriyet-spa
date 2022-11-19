@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 import style from "styles/components/pages/Home/RecentNews.module.css";
-import { calculateAncestor, utf8ToEnglish } from "utils";
+import { calculateAncestor, parseToArray, utf8ToEnglish } from "utils";
 interface IRecentNewsListItem {
   newsData: any;
 }
@@ -28,7 +28,7 @@ const RecentNewsListItem: FC<IRecentNewsListItem> = ({ newsData }) => {
             newsData?.attributes?.slug
           }_${newsData?.id}`}
         >
-          <a className={style.newsTag}>#Beşiktaş - Fenerbahçe</a>
+          <a className={style.newsTag}>#{parseToArray(newsData.attributes.tags)[0]} </a>
         </Link>
       </div>
       <div className={style.imageWrapper}>

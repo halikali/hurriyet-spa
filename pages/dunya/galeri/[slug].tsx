@@ -50,6 +50,7 @@ const DunyaGalleryDetailPage: NextPage = ({ data }: any) => {
     news_spot_text,
     news_title,
     updatedAt,
+    tags,
   } = data.attributes;
 
   return (
@@ -64,7 +65,7 @@ const DunyaGalleryDetailPage: NextPage = ({ data }: any) => {
           title={news_title}
           updatedDate={`Güncelleme Tarihi: ${updatedAt}`}
         />
-        <DetailPageTagList />
+        <DetailPageTagList tags={tags} />
         <div className={style.pageContent}>
           <div className={style.newsWrapper}>
             <div className={style.newsInfo}>
@@ -108,7 +109,7 @@ const DunyaGalleryDetailPage: NextPage = ({ data }: any) => {
               <p className={style.newsMoreText}>
                 Haberlerle ilgili daha fazlası:
               </p>
-              <DetailPageTagList />
+              <DetailPageTagList tags={tags} />
             </div>
           </div>
           <aside className={style.aside}></aside>

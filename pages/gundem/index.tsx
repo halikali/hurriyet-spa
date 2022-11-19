@@ -18,6 +18,7 @@ type attributesType = {
   news_spot_text: string;
   news_image: any;
   ancestor: string;
+  tags: string;
 };
 
 type newsType = {
@@ -71,6 +72,7 @@ const index: NextPage<IPageProps> = ({ news }) => {
               alt={
                 mainNews.attributes.news_image.data.attributes.alternativeText
               }
+              tags={mainNews.attributes.tags}
             />
             <ul className={style.list}>
               {Array.from(news)
@@ -95,6 +97,7 @@ const index: NextPage<IPageProps> = ({ news }) => {
                         item?.attributes.news_image?.data?.attributes
                           ?.alternativeText
                       }
+                      tags={item.attributes.tags}
                     />
                   </li>
                 ))}

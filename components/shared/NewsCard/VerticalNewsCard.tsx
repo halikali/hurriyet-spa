@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/VerticalNewsCard.module.css";
-import { calculateAncestor, utf8ToEnglish } from "utils";
+import { calculateAncestor, parseToArray, utf8ToEnglish } from "utils";
 
 interface IVerticalNewsCard {
   newsData: any;
@@ -34,7 +34,7 @@ const VerticalNewsCard: FC<IVerticalNewsCard> = ({ newsData }) => {
       </a>
       <figcaption className={style.figcaption}>
         <p className={style.title}>{newsData?.attributes?.news_title}</p>
-        <p className={style.tag}>#etlik şehir hastanesi</p>
+        <a className={style.tag} href={`/haberleri/`} title={" "} >#{parseToArray(newsData?.attributes?.tags)[0]}</a>
       </figcaption>
     </figure>
   );

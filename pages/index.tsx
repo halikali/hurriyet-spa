@@ -128,6 +128,7 @@ const Home: NextPage = ({ news }: any) => {
             }
             news_title={doNotOverlookFullSize.attributes?.news_title}
             slug={doNotOverlookFullSize.attributes?.slug}
+            tags={doNotOverlookFullSize.attributes?.tags}
           />
         </div>
 

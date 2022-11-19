@@ -24,4 +24,8 @@ const calculateAncestor = (ancestor: string | undefined): string => {
   else return "";
 };
 
-export { utf8ToEnglish, calculateAncestor };
+const parseToArray = (tags: string) => {
+  return tags?.split(",");
+};
+
+export { utf8ToEnglish, calculateAncestor, parseToArray };

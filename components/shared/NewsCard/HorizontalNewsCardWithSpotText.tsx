@@ -3,17 +3,18 @@ import Link from "next/link";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/HorizontalNewsCardWithSpotText.module.css";
-import { calculateAncestor, utf8ToEnglish } from "utils";
+import { calculateAncestor, parseToArray, utf8ToEnglish } from "utils";
 
 interface IPageProps {
-  id?: string;
-  slug?: string;
-  news_title?: string;
-  news_spot_text?: string;
-  category_name?: string;
-  ancestor?: string;
-  image?: string;
-  alt?: string;
+  id: string;
+  slug: string;
+  news_title: string;
+  news_spot_text: string;
+  category_name: string;
+  ancestor: string;
+  image: string;
+  alt: string;
+  tags: string;
 }
 
 const HorizontalNewsCardWithSpotText: FC<IPageProps> = ({
@@ -25,6 +26,7 @@ const HorizontalNewsCardWithSpotText: FC<IPageProps> = ({
   ancestor,
   image,
   alt,
+  tags,
 }) => {
   return (
     <Link
@@ -70,7 +72,7 @@ const HorizontalNewsCardWithSpotText: FC<IPageProps> = ({
             title={alt || ""}
             className={style.tag}
           >
-            #danimarka kraliçesi margrethe 2
+            #{parseToArray(tags)[0]}
           </a>
         </figcaption>
       </figure>

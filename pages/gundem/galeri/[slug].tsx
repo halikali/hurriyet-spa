@@ -50,6 +50,7 @@ const GundemGalleryDetailPage: NextPage = ({ data }: any) => {
     gallery_item_contents,
     news_spot_text,
     news_title,
+    tags,
   } = data.attributes;
   return (
     <main className={"main main--category"}>
@@ -62,7 +63,7 @@ const GundemGalleryDetailPage: NextPage = ({ data }: any) => {
           title={news_title}
           updatedDate={"Güncelleme Tarihi: " + updatedAt}
         />
-        <DetailPageTagList />
+        <DetailPageTagList tags={tags} />
         <div className={style.pageContent}>
           <div className={style.newsWrapper}>
             <div className={style.newsInfo}>
@@ -106,7 +107,7 @@ const GundemGalleryDetailPage: NextPage = ({ data }: any) => {
               <p className={style.newsMoreText}>
                 Haberlerle ilgili daha fazlası:
               </p>
-              <DetailPageTagList />
+              <DetailPageTagList tags={tags} />
             </div>
           </div>
           <aside className={style.aside}></aside>

@@ -15,8 +15,7 @@ export async function getStaticPaths() {
 
   try {
     res = await getNewsDetail("gündem").then((data) => data.data.data);
-  } catch (error: any) {
-  }
+  } catch (error: any) {}
 
   return {
     paths:
@@ -34,8 +33,7 @@ export async function getStaticProps({ params }: any) {
     res = await getSingularNews(params.slug.split("_")[1], "news-details").then(
       (data) => data.data.data
     );
-  } catch (error: any) {
-  }
+  } catch (error: any) {}
 
   return {
     props: {
@@ -53,6 +51,7 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
     news_title,
     news_image,
     news_content,
+    tags,
   } = data.attributes;
 
   return (
@@ -67,7 +66,7 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
             title={news_title}
             updatedDate={`Güncelleme Tarihi: ${updatedAt}`}
           />
-          <DetailPageTagList />
+          <DetailPageTagList tags={tags} />
           <div className={style.pageContent}>
             <div className={style.newsWrapper}>
               <div>
@@ -94,7 +93,7 @@ const GundemDetailPage: NextPage = ({ data }: any) => {
                 <p className={style.newsMoreText}>
                   Haberlerle ilgili daha fazlası:
                 </p>
-                <DetailPageTagList />
+                <DetailPageTagList tags={tags} />
               </div>
             </div>
             <aside className={style.aside}>

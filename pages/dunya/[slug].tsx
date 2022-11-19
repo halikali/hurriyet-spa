@@ -30,8 +30,7 @@ export async function getStaticProps({ params }: any) {
     res = await getSingularNews(params.slug.split("_")[1], "news-details").then(
       (item: any) => item.data.data
     );
-  } catch (error) {
-  }
+  } catch (error) {}
 
   return {
     props: {
@@ -49,6 +48,7 @@ const DunyaDetailPage: NextPage = ({ data }: any) => {
     news_image,
     news_title,
     updatedAt,
+    tags,
   } = data.attributes;
 
   return (
@@ -63,7 +63,7 @@ const DunyaDetailPage: NextPage = ({ data }: any) => {
             title={news_title}
             updatedDate={`Güncelleme Tarihi: ${updatedAt}`}
           />
-          <DetailPageTagList />
+          <DetailPageTagList tags={tags} />
           <div className={style.pageContent}>
             <div className={style.newsWrapper}>
               <div>
@@ -90,7 +90,7 @@ const DunyaDetailPage: NextPage = ({ data }: any) => {
                 <p className={style.newsMoreText}>
                   Haberlerle ilgili daha fazlası:
                 </p>
-                <DetailPageTagList />
+                <DetailPageTagList tags={tags} />
               </div>
             </div>
             <aside className={style.aside}>

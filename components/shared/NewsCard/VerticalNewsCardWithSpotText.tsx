@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 import style from "styles/components/shared/NewsCard/VerticalNewsCardWithSpotText.module.css";
-import { calculateAncestor, utf8ToEnglish } from "utils";
+import { calculateAncestor, parseToArray, utf8ToEnglish } from "utils";
 
 interface IPageProps {
   id?: string;
@@ -14,6 +14,7 @@ interface IPageProps {
   ancestor?: string;
   image?: string;
   alt?: string;
+  tags: string;
 }
 
 const VerticalNewsCardWithSpotText: FC<IPageProps> = ({
@@ -25,6 +26,7 @@ const VerticalNewsCardWithSpotText: FC<IPageProps> = ({
   ancestor,
   image,
   alt,
+  tags
 }) => {
   return (
     <Link
@@ -70,7 +72,7 @@ const VerticalNewsCardWithSpotText: FC<IPageProps> = ({
             title={alt || ""}
             className={style.tag}
           >
-            #danimarka kraliçesi margrethe 2
+            #{parseToArray(tags)[0]}
           </a>
         </figcaption>
       </figure>
