@@ -5,29 +5,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import style from "styles/pages/CategoryPage.module.css";
 import { getGalleryNews, getNewsDetail } from "Services/NewsService";
-
-type attributesType = {
-  news_title: string;
-  news_content: String;
-  category_name: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  slug: string;
-  news_spot_text: string;
-  news_image: any;
-  ancestor: string;
-  tags: string;
-};
-
-type newsType = {
-  id: number;
-  attributes: attributesType;
-};
-
-interface IPageProps {
-  news: newsType[];
-}
+import { IIndexPageProps } from "types/pageTypes";
 
 export async function getServerSideProps({ req, res }: any) {
   res.setHeader(
@@ -43,7 +21,7 @@ export async function getServerSideProps({ req, res }: any) {
   };
 }
 
-const index: NextPage<IPageProps> = ({ news }) => {
+const index: NextPage<IIndexPageProps> = ({ news }) => {
   const mainNews = news[0];
 
   return (

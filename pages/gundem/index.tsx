@@ -5,30 +5,8 @@ import CategoryTitle from "components/shared/CategoryTitle/CategoryTitle";
 import HorizontalNewsCardWithSpotText from "components/shared/NewsCard/HorizontalNewsCardWithSpotText";
 import VerticalNewsCardWithSpotText from "components/shared/NewsCard/VerticalNewsCardWithSpotText";
 import { getGalleryNews, getNewsDetail } from "Services/NewsService";
+import { IIndexPageProps } from "types/pageTypes";
 import style from "styles/pages/CategoryPage.module.css";
-
-type attributesType = {
-  news_title: string;
-  news_content: String;
-  category_name: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  slug: string;
-  news_spot_text: string;
-  news_image: any;
-  ancestor: string;
-  tags: string;
-};
-
-type newsType = {
-  id: number;
-  attributes: attributesType;
-};
-
-interface IPageProps {
-  news: newsType[];
-}
 
 export async function getServerSideProps({ req, res }: any) {
   res.setHeader(
@@ -44,7 +22,7 @@ export async function getServerSideProps({ req, res }: any) {
   };
 }
 
-const index: NextPage<IPageProps> = ({ news }) => {
+const index: NextPage<IIndexPageProps> = ({ news }) => {
   const mainNews = news[0];
   return (
     <>

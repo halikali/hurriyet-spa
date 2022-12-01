@@ -7,6 +7,7 @@ import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTag
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import { getGalleryNews, getSingularNews } from "Services/NewsService";
 import style from "styles/pages/CategoryPage.module.css";
+import { IGalleryDetailPageProps } from "types/pageTypes";
 
 export async function getStaticPaths() {
   let res;
@@ -42,7 +43,7 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-const GundemGalleryDetailPage: NextPage = ({ data }: any) => {
+const GundemGalleryDetailPage: NextPage<IGalleryDetailPageProps> = ({ data }) => {
   const {
     category_name,
     updatedAt,

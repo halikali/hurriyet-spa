@@ -9,6 +9,7 @@ import { getNewsDetail, getSingularNews } from "Services/NewsService";
 import env from "appsettings.json";
 import style from "styles/pages/CategoryPage.module.css";
 import Head from "next/head";
+import { INewsDetailPageProps } from "types/pageTypes";
 
 export async function getStaticPaths() {
   let res;
@@ -43,7 +44,7 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-const GundemDetailPage: NextPage = ({ data }: any) => {
+const GundemDetailPage: NextPage<INewsDetailPageProps> = ({ data }) => {
   const {
     category_name,
     updatedAt,

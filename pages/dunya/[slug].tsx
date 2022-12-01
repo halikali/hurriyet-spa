@@ -8,6 +8,7 @@ import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import style from "styles/pages/CategoryPage.module.css";
 import { getNewsDetail, getSingularNews } from "Services/NewsService";
 import Head from "next/head";
+import { INewsDetailPageProps } from "types/pageTypes";
 
 export async function getStaticPaths() {
   let res;
@@ -40,7 +41,7 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-const DunyaDetailPage: NextPage = ({ data }: any) => {
+const DunyaDetailPage: NextPage<INewsDetailPageProps> = ({ data }) => {
   const {
     category_name,
     createdAt,
