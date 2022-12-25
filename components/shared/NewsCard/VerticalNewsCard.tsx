@@ -9,6 +9,9 @@ interface IVerticalNewsCard {
 }
 
 const VerticalNewsCard: FC<IVerticalNewsCard> = ({ newsData }) => {
+
+  const tag = parseToArray(newsData?.attributes?.tags)[0];
+
   return (
     <figure className={style.newsCard}>
       <a
@@ -34,7 +37,7 @@ const VerticalNewsCard: FC<IVerticalNewsCard> = ({ newsData }) => {
       </a>
       <figcaption className={style.figcaption}>
         <p className={style.title}>{newsData?.attributes?.news_title}</p>
-        <a className={style.tag} href={`/haberleri/`} title={" "} >#{parseToArray(newsData?.attributes?.tags)[0]}</a>
+        <a className={style.tag} href={`/haberleri/${tag}`} title={" "} >#{tag}</a>
       </figcaption>
     </figure>
   );

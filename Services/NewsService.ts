@@ -84,9 +84,31 @@ const getNewsForAppearanceArea = async (areaName: AreaToEppear) => {
   return news;
 };
 
+const searchNews = async (searchQuery: string | undefined) => {
+  const query = qs.stringify(
+    {
+      populate: "*",
+      filters: {
+        news_title: {
+          $containsi: searchQuery,
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
+
+  const galleryNews = await api.get("gallery-details" + "?" + query);
+  const newsDetails = await api.get("news-details" + "?" + query);
+  const news = [galleryNews.data, newsDetails.data].flat();
+  return news;
+};
+
 export {
   getGalleryNews,
   getNewsDetail,
   getSingularNews,
   getNewsForAppearanceArea,
+  searchNews,
 };
