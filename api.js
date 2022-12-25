@@ -1,7 +1,8 @@
 import axios from "axios";
+import settings from "appsettings.json";
 
 const api = axios.create({
-    baseURL: "https://hurriyet-spa-cms.herokuapp.com/api/"
-})
+  baseURL: settings.api_base_url,
+});
 
 export default api;
