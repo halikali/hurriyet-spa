@@ -13,7 +13,23 @@ const HomeCarousel: FC<IHomeCarousel> = ({ news }) => {
     <div>
       <Swiper
         navigation
-        pagination={{ clickable: true }}
+        pagination={{
+          clickable: true,
+          renderBullet: function (index, className) {
+            let currentIndex = index + 1;
+
+            const findHref = function (crr: number) {
+              var elem = document.querySelector(
+                `.home-carousel div[data-swiper-slide-index="${crr}"] a`
+              );
+              return elem;
+            };
+
+            return `<a href="${findHref(
+              index
+            )}" class="${className}" target="_blank" > ${currentIndex} </a>`;
+          },
+        }}
         modules={[Pagination, Navigation]}
         className="home-carousel"
         loop={true}

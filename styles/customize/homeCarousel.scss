@@ -19,26 +19,36 @@
   }
 
   .swiper-pagination-bullet {
-    background-color: #f1f1f8;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
     font-size: 0;
     height: 12px;
     width: 12px;
+    border: 1px solid #f1f1f8;
+    color: #000;
+    opacity: 1;
 
     @media screen and (min-width: 1024px) {
       font-size: 12px;
       height: 20px;
-      line-height: 28px;
       width: 20px;
-
-      border-radius: 38px;
-      border: 1px solid #f1f1f8;
+      border-radius: 50%;
       display: block;
       text-align: center;
       transition: 0.4s;
     }
 
+    @media screen and (min-width: 1600px) {
+      width: 34px;
+      height: 34px;
+    }
+
     &.swiper-pagination-bullet-active {
       background-color: #f10000;
+      color: #fff;
+      border: 1px solid transparent;
     }
   }
 
