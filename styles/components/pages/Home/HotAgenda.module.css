@@ -28,6 +28,9 @@
     flex justify-start items-center gap-4
     p-2 px-5
     overflow-hidden
+
+    lg:top-10
+    xl:top-12
 }
 
 .imageWrapper {
