@@ -85,13 +85,27 @@ const getNewsForAppearanceArea = async (areaName: AreaToEppear) => {
 };
 
 const searchNews = async (searchQuery: string | undefined) => {
-  const query = qs.stringify(
+  const queryForNewsDetail = qs.stringify(
     {
       populate: "*",
       filters: {
-        news_title: {
-          $containsi: searchQuery,
-        },
+        $or: [
+          {
+            news_title: {
+              $containsi: searchQuery,
+            },
+          },
+          {
+            tags: {
+              $containsi: searchQuery,
+            },
+          },
+          {
+            news_content: {
+              $containsi: searchQuery,
+            },
+          },
+        ],
       },
     },
     {
@@ -99,8 +113,36 @@ const searchNews = async (searchQuery: string | undefined) => {
     }
   );
 
-  const galleryNews = await api.get("gallery-details" + "?" + query);
-  const newsDetails = await api.get("news-details" + "?" + query);
+  const queryForGallery = qs.stringify(
+    {
+      populate: "*",
+      filters: {
+        $or: [
+          {
+            news_title: {
+              $containsi: searchQuery,
+            },
+          },
+          {
+            tags: {
+              $containsi: searchQuery,
+            },
+          },
+          {
+            news_spot_text: {
+              $containsi: searchQuery,
+            },
+          },
+        ],
+      },
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
+
+  const galleryNews = await api.get("gallery-details" + "?" + queryForGallery);
+  const newsDetails = await api.get("news-details" + "?" + queryForNewsDetail);
   const news = [galleryNews.data, newsDetails.data].flat();
   return news;
 };
