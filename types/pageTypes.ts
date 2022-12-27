@@ -56,4 +56,16 @@ interface INewsDetailPageProps {
   };
 }
 
-export type { IIndexPageProps, IGalleryDetailPageProps, INewsDetailPageProps };
+interface ISearchPageProps {
+  news: Array<{
+    attributes: galleryDetailPageAttributesType | newsDetailPageAttributesType;
+  }>;
+  query: string;
+}
+
+export type {
+  IIndexPageProps,
+  IGalleryDetailPageProps,
+  INewsDetailPageProps,
+  ISearchPageProps,
+};
