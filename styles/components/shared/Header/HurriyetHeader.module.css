@@ -45,3 +45,21 @@
     w-24 h-8
     cursor-pointer
 }
+
+.searchbar {
+    @apply
+    absolute right-14
+    outline-none
+    w-0
+    indent-2
+    caret-slate-600
+    transition-all
+
+    xl:right-16
+}
+
+.active {
+    @apply
+    w-44
+    transition-all
+}

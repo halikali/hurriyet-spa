@@ -1,18 +1,30 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
-
-import NavLinks from "mocks/HurriyetHeaderLinks.json";
-import assets from "assets";
-import style from "styles/components/shared/Header/HurriyetHeader.module.css";
 import Image from "next/image";
+
+import assets from "assets";
+import NavLinks from "mocks/HurriyetHeaderLinks.json";
 import HurriyetHamburgerMenu from "../HamburgerMenu/HurriyetHamburgerMenu";
+import style from "styles/components/shared/Header/HurriyetHeader.module.css";
 
 const HurriyetHeader: FC = () => {
   const { links } = NavLinks;
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [searchbarOpen, setSearchbarOpen] = useState<boolean>(false);
+  const router = useRouter();
 
-  const isMenuOpen = (status: boolean): void => {
+  const isMenuOpen = (): void => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ): void => {
+    if (event.key === "Enter") {
+      router.push(`/haberleri/${event.currentTarget.value}`);
+      event.currentTarget.value = "";
+    }
   };
 
   return (
@@ -63,6 +75,18 @@ const HurriyetHeader: FC = () => {
         height={"29"}
         priority
         decoding="async"
+        onClick={() => {
+          setSearchbarOpen(!searchbarOpen);
+        }}
+      />
+
+      <input
+        type="text"
+        placeholder="Yeni bir arama yapın"
+        className={[style.searchbar, searchbarOpen && style.active].join(" ")}
+        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+          handleKeyDown(e);
+        }}
       />
     </header>
   );
