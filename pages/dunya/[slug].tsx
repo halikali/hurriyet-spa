@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import Head from "next/head";
 
 import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTagList";
@@ -7,8 +8,8 @@ import VerticalNewsCard from "components/shared/NewsCard/VerticalNewsCard";
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import style from "styles/pages/CategoryPage.module.css";
 import { getNewsDetail, getSingularNews } from "Services/NewsService";
-import Head from "next/head";
 import { INewsDetailPageProps } from "types/pageTypes";
+import { convertTimeToHumanReadable } from "utils";
 
 export async function getStaticPaths() {
   let res;
@@ -62,7 +63,7 @@ const DunyaDetailPage: NextPage<INewsDetailPageProps> = ({ data }) => {
           <Breadcrumb category={category_name} />
           <NewsTitle
             title={news_title}
-            updatedDate={`Güncelleme Tarihi: ${updatedAt}`}
+            updatedDate={`Güncelleme Tarihi: ${convertTimeToHumanReadable(updatedAt)}`}
           />
           <DetailPageTagList tags={tags} />
           <div className={style.pageContent}>
@@ -79,7 +80,7 @@ const DunyaDetailPage: NextPage<INewsDetailPageProps> = ({ data }) => {
                 <div className={style.newsInfo}>
                   <span className={style.authorName}>John Doe, JDH</span>
                   <span className={style.createTime}>
-                    Oluşturulma Tarihi: {createdAt}
+                    Oluşturulma Tarihi: {convertTimeToHumanReadable(createdAt)}
                   </span>
                 </div>
               </div>

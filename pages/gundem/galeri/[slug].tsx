@@ -6,8 +6,9 @@ import Breadcrumb from "components/shared/Breadcrumb/Breadcrumb";
 import DetailPageTagList from "components/shared/DetailPageTagList/DetailPageTagList";
 import NewsTitle from "components/shared/NewsTitle/NewsTitle";
 import { getGalleryNews, getSingularNews } from "Services/NewsService";
-import style from "styles/pages/CategoryPage.module.css";
 import { IGalleryDetailPageProps } from "types/pageTypes";
+import { convertTimeToHumanReadable } from "utils";
+import style from "styles/pages/CategoryPage.module.css";
 
 export async function getStaticPaths() {
   let res;
@@ -62,7 +63,7 @@ const GundemGalleryDetailPage: NextPage<IGalleryDetailPageProps> = ({ data }) =>
         <Breadcrumb category={category_name} />
         <NewsTitle
           title={news_title}
-          updatedDate={"Güncelleme Tarihi: " + updatedAt}
+          updatedDate={"Güncelleme Tarihi: " + convertTimeToHumanReadable(updatedAt)}
         />
         <DetailPageTagList tags={tags} />
         <div className={style.pageContent}>
@@ -70,7 +71,7 @@ const GundemGalleryDetailPage: NextPage<IGalleryDetailPageProps> = ({ data }) =>
             <div className={style.newsInfo}>
               <span className={style.authorName}>John Doe, JDH</span>
               <span className={style.createTime}>
-                Oluşturulma Tarihi: {createdAt}
+                Oluşturulma Tarihi: {convertTimeToHumanReadable(createdAt)}
               </span>
             </div>
             <h2 className={style.h2}>{news_spot_text}</h2>
