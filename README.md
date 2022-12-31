@@ -1,5 +1,5 @@
 
-# Next.js Blog Website
+# Hurriyet Website Clone
 This project is the clone of the [Hürriyet](https://www.hurriyet.com.tr/). Single Page Application principles has been applied. On the server side rendering and static page creation methods are used as a hybrid. Pre-rendered pages, regenerate every 10 minutes.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
